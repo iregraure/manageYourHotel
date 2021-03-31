@@ -2,11 +2,17 @@ package com.manageYourHotel.model.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Person {
 
 	// Attributes
@@ -29,6 +35,10 @@ public class Person {
 	private String phone;
 	
 	private String birthDate;
+	
+	@ManyToOne
+	@JoinColumn(name = "userId", foreignKey = @ForeignKey(name = "FK_USER_EMPLOYEE"))
+	private User user;
 	
 	// Constructors
 	public Person()

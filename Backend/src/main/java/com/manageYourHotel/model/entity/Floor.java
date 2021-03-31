@@ -1,9 +1,17 @@
 package com.manageYourHotel.model.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Floor {
@@ -15,14 +23,23 @@ public class Floor {
 	
 	private int number;
 	
+	@ManyToOne
+	@JoinColumn(name = "buildingId", foreignKey = @ForeignKey(name="FK_BUILDING_FLOOR"))
+	private Building building;
+	
+	@OneToMany(mappedBy="floor", cascade=CascadeType.ALL)
+	private List<Room> rooms;
+	
 	// Constructors
 	public Floor()
 	{
 		super();
+		this.rooms = new ArrayList<Room>();
 	}
 	
 	public Floor(int number)
 	{
+		this.rooms = new ArrayList<Room>();
 		this.number = number;
 	}
 

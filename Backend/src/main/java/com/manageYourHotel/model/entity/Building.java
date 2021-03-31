@@ -1,10 +1,15 @@
 package com.manageYourHotel.model.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Building {
@@ -20,14 +25,19 @@ public class Building {
 	@Column(unique = true)
 	private String address;
 	
+	@OneToMany(mappedBy="building", cascade=CascadeType.ALL)
+	private List<Floor> floors;
+	
 	// Constructors
 	public Building()
 	{
 		super();
+		this.floors = new ArrayList<Floor>();
 	}
 	
 	public Building(String name, String address)
 	{
+		this.floors = new ArrayList<Floor>();
 		this.name = name;
 		this.address = address;
 	}

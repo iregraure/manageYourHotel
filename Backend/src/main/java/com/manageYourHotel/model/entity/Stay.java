@@ -3,9 +3,12 @@ package com.manageYourHotel.model.entity;
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Stay {
@@ -22,6 +25,14 @@ public class Stay {
 	
 	private String comment;
 	
+	@ManyToOne
+	@JoinColumn(name = "roomId", foreignKey = @ForeignKey(name="FK_ROOM_STAY"))
+	private Room room;
+	
+	@ManyToOne
+	@JoinColumn(name = "clientId", foreignKey = @ForeignKey(name="FK_CLIENT_STAY"))
+	private Client client;
+	
 	// Constructors
 	public Stay()
 	{
@@ -29,11 +40,13 @@ public class Stay {
 		this.rate = 0;
 	}
 	
-	public Stay(LocalDateTime startDate, LocalDateTime endDate)
+	public Stay(LocalDateTime startDate, LocalDateTime endDate, Room room, Client client)
 	{
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.rate = 0;
+		this.room = room;
+		this.client = client;
 	}
 	
 	// Getters and setters

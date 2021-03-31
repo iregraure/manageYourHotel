@@ -1,9 +1,12 @@
 package com.manageYourHotel.model.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Rating {
@@ -17,10 +20,25 @@ public class Rating {
 	
 	private String comment;
 	
+	@ManyToOne
+	@JoinColumn(name = "EmployeeId", foreignKey = @ForeignKey(name = "FK_EMPLOYEE_RATING"))
+	private Employee employee;
+	
+	@ManyToOne
+	@JoinColumn(name = "ClientId", foreignKey = @ForeignKey(name = "FK_CLIENT_RATING"))
+	private Client clientRate;
+	
 	// Constructors
 	public Rating()
 	{
 		super();
+	}
+	
+	public Rating(Employee employee, Client client)
+	{
+		this.rate = 0;
+		this.employee = employee;
+		this.clientRate = client;
 	}
 
 	// Getters and setters

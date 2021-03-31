@@ -1,10 +1,18 @@
 package com.manageYourHotel.model.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
-public class Employee extends Person{
+public class Employee extends Person {
 
 	// Attributes
 	@Column(unique = true)
@@ -16,24 +24,29 @@ public class Employee extends Person{
 	
 	private String holidays;
 	
+	@ManyToOne
+	@JoinColumn(name = "categoryId", foreignKey = @ForeignKey(name = "FK_CATEGORY_EMPLOYEE"))
+	private Category category;
+	
+	@OneToMany(mappedBy="employee", cascade=CascadeType.ALL)
+	private List<Rating> ratings;
+	
 	// Constructors
 	public Employee()
 	{
 		super();
+		this.ratings = new ArrayList<Rating>();
 	}
 	
-	public Employee(String name, String surname, String dni, String email, String address, String phone, String birthDate)
+	public Employee(String name, String surname, String dni, String email, String address, String phone, String birthDate, String nss, String schedule, double salary, String holidays, Category category)
 	{
 		super(name, surname, dni, email, address, phone, birthDate);
-	}
-	
-	public Employee(String name, String surname, String dni, String email, String address, String phone, String birthDate, String nss, String schedule, double salary, String holidays)
-	{
-		super(name, surname, dni, email, address, phone, birthDate);
+		this.ratings = new ArrayList<Rating>();
 		this.nss = nss;
 		this.schedule = schedule;
 		this.salary = salary;
 		this.holidays = holidays;
+		this.category = category;
 	}
 
 	// Getters and setters
