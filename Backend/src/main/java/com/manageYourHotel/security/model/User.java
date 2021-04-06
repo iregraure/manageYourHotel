@@ -1,4 +1,4 @@
-package com.manageYourHotel.model.entity;
+package com.manageYourHotel.security.model;
 
 import java.time.LocalDateTime;
 import java.util.Collection;
@@ -143,7 +143,7 @@ public class User implements UserDetails
 		this.passwordExpireDate = passwordExpireDate;
 	}
 
-	public int getId() 
+	public Integer getId() 
 	{
 		return id;
 	}
@@ -151,6 +151,10 @@ public class User implements UserDetails
 	public LocalDateTime getCreateTime() 
 	{
 		return createTime;
+	}
+
+	public void setCreateTime(LocalDateTime createTime) {
+		this.createTime = createTime;
 	}
 
 	public void setUsername(String username) 

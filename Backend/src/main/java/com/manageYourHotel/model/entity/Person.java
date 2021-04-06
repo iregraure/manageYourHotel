@@ -11,6 +11,8 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.manageYourHotel.security.model.User;
+
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Person {
@@ -116,6 +118,14 @@ public class Person {
 
 	public int getId() {
 		return id;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 	
 }
