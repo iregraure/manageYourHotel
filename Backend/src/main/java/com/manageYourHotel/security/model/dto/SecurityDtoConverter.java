@@ -37,7 +37,7 @@ public class SecurityDtoConverter {
 	{
 		User user = new User();
 		user.setUsername(dto.getDni());
-		user.setPassword(dto.getDni());
+		user.setPassword(passEncoder.encode(dto.getDni()));
 		user.setRoles(Set.of(Role.CLIENT));
 		user.setCreateTime(LocalDateTime.now());
 		user.setUpdateTime(LocalDateTime.now());

@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -20,6 +21,7 @@ import com.manageYourHotel.common.Constants;
 import com.manageYourHotel.security.model.User;
 import com.manageYourHotel.security.model.dto.UserDto;
 
+@WebFilter
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter 
 {
 	
