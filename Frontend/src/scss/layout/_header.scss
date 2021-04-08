@@ -1,0 +1,23 @@
+@import '../abstracts/variables';
+
+.title
+{
+    padding: 0 6vw;
+}
+
+h1
+{
+    color: $headerTitleColor;
+    font-size: 4.6vh;
+    font-weight: 500;
+}
+
+.image
+{
+    padding: 0 1vw;
+}
+
+img
+{
+    height: 11vh;
+}
