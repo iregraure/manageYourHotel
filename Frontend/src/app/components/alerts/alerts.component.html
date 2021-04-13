@@ -5,7 +5,7 @@
 
 <!-- Error -->
 <div *ngIf="data.type == alertTypeClass.ERROR">
-    <h1 mat-dialog-type><mat-icon aria-hidden="false" aria-label="Error">error_outline</mat-icon></h1>
+    <h1 class="alertIcon" mat-dialog-type><mat-icon aria-hidden="false" aria-label="Error">error_outline</mat-icon></h1>
     <div mat-dialog-content> {{data.text}} </div>
     <div mat-dialog-actions>
         <button mat-button mat-dialog-close>Close</button>
@@ -14,7 +14,7 @@
 
 <!-- Confirm -->
 <div *ngIf="data.type == alertTypeClass.CONFIRM">
-    <h1 mat-dialog-type><mat-icon aria-hidden="false" aria-label="Qustion">help_outline</mat-icon></h1>
+    <h1 class="alertIcon" mat-dialog-type><mat-icon aria-hidden="false" aria-label="Qustion">help_outline</mat-icon></h1>
     <div mat-dialog-content> {{data.text}} </div>
     <div mat-dialog-actions>
         <button mat-button [mat-dialog-close]="alertTypeClass.CANCEL" cdkFocusInitial>Cancel</button>
@@ -24,7 +24,7 @@
 
 <!-- Info -->
 <div *ngIf="data.type == alertTypeClass.INFO">
-    <h1 mat-dialog-title><mat-icon aria-hidden="false" aria-label="Info">info</mat-icon></h1>
+    <h1 class="alertIcon" mat-dialog-title><mat-icon aria-hidden="false" aria-label="Info">info</mat-icon></h1>
     <div mat-dialog-content> {{data.text}} </div>
     <div mat-dialog-actions>
         <button mat-button [mat-dialog-close]="alertTypeClass.ACCEPT" cdkFocusInitial>Aceptar</button>

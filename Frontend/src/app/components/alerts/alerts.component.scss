@@ -1,0 +1,53 @@
+@import "src/scss/main.scss";
+
+::ng-deep
+{
+    .mat-dialog-container
+    {
+        background-color: $textColor;
+        color: $bgColor;
+        font-size: 3vh;
+        width: 70vw;
+        font-weight: 450;
+
+        .mat-dialog-content
+        {
+            margin-top: 3vh;
+            height: 5vh;
+        }
+
+        .alertIcon
+        {
+            height: 11vh;
+
+            .mat-icon
+            {
+                font-size: 10vh;
+                margin-left: 20vw;
+            }
+        }
+
+        .mat-progress-spinner circle,
+        .mat-spinner circle
+        {
+            stroke: $bgColor;
+        }
+
+        .mat-dialog-actions
+        {
+            display: flex;
+            justify-content: center;
+        }
+
+    }
+
+}
+
+button
+{
+    background-color: #F49471;
+    color: #5E1F08;
+    font-size: 3vh;
+    padding: 1vh 3vw;
+    border-radius: 6px;
+}

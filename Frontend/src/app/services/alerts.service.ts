@@ -19,14 +19,14 @@ export class AlertsService {
     this.dialogConfig.autoFocus = true;
   }
 
-  cerrarDialogo()
+  closeDialog()
   {
     this.dialog.closeAll();
   }
 
-  dialogCargando()
+  loadingDialog()
   {
-    this.cerrarDialogo();
+    this.closeDialog();
     this.dialogConfig.data =
     {
       type: Types.WAITING
@@ -34,9 +34,9 @@ export class AlertsService {
     this.dialog.open(AlertsComponent, this.dialogConfig)
   }
 
-  dialogError(errorText: string)
+  errorDialog(errorText: string)
   {
-    this.cerrarDialogo();
+    this.closeDialog();
     this.dialogConfig.data =
     {
       type: Types.ERROR,
@@ -45,9 +45,9 @@ export class AlertsService {
     this.dialog.open(AlertsComponent, this.dialogConfig);
   }
 
-  dialogInfo(infoText: string): Observable<number>
+  infoDialog(infoText: string): Observable<number>
   {
-    this.cerrarDialogo();
+    this.closeDialog();
     this.dialogConfig.data = 
     {
       type: Types.INFO,
@@ -57,9 +57,9 @@ export class AlertsService {
     return dialogoRef.afterClosed();
   }
 
-  dialogoConfirmacion(confirmText: string): Observable<number>
+  confirmDialog(confirmText: string): Observable<number>
   {
-    this.cerrarDialogo();
+    this.closeDialog();
     this.dialogConfig.data = 
     {
       type: Types.CONFIRM,
@@ -69,7 +69,7 @@ export class AlertsService {
     return dialogoRef.afterClosed();
   }
 
-  mostrarSnackBar(mensajeAMostrar: string)
+  showSnackbar(mensajeAMostrar: string)
   {
     this.snackBar.open(mensajeAMostrar, null,
       {
