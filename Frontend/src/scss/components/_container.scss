@@ -1,6 +1,30 @@
+.title
+{
+    padding: 3vh 8vw;
+}
+
 .centered
 {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.column
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main
+{
+    background-color: $bgColor;
+    height: 88vh;
+    color: $textColor;
+}
+
+.welcome
+{
+    padding: 3vh 0;
 }

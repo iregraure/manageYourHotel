@@ -29,7 +29,7 @@ public class UserController
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
 	}
 	
-	@PostMapping("/signUp")
+	@PostMapping("/signUpClient")
 	public ResponseEntity<UserDto> signup(@RequestBody ClientDto dto)
 	{
 		try

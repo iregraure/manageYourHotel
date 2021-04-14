@@ -22,7 +22,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.manageYourHotel.common.Constants;
-import com.manageYourHotel.model.enums.Role;
+import com.manageYourHotel.security.model.enums.Role;
 
 @Entity
 public class User implements UserDetails 

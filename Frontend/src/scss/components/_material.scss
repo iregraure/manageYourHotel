@@ -1,0 +1,95 @@
+// Alerts styles
+::ng-deep
+{
+    .mat-dialog-container
+    {
+        background-color: $textColor;
+        color: $bgColor;
+        font-size: 3vh;
+        width: 70vw;
+        font-weight: 450;
+        display: flex;
+        justify-content: center;
+
+        .mat-dialog-content
+        {
+            margin-top: 3vh;
+            height: 5vh;
+        }
+
+        .alertIcon
+        {
+            height: 11vh;
+
+            .mat-icon
+            {
+                font-size: 10vh;
+                margin-left: 16vw;
+            }
+        }
+
+        .mat-progress-spinner circle,
+        .mat-spinner circle
+        {
+            stroke: $bgColor;
+        }
+
+        .mat-dialog-actions
+        {
+            display: flex;
+            justify-content: center;
+        }
+
+    }
+
+}
+
+// Forms styles
+::ng-deep {
+    .mat-form-field-appearance-outline .mat-form-field-outline,
+    .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline 
+    {
+        color: $textColor;
+    }
+    mat-form-field {
+        .mat-hint,
+        input,
+        ::placeholder,
+        .mat-form-field-label {
+            color: $textColor;
+        }
+    }
+
+    // focused styles
+    .mat-form-field.mat-focused {
+        .mat-form-field-label,
+        .mat-form-field-required-marker,
+        .mat-input-element
+        {
+            color: $textColor;
+        }
+    }
+
+    // invalid styles
+    .mat-form-field.mat-form-field-invalid {
+        .mat-input-element,
+        .mat-form-field-label
+        {
+            color: #f7a1a1;
+            .mat-form-field-required-marker {
+                color: #f7a1a1;
+            }
+        }
+        .iconButton
+        {
+            color: #f7a1a1;
+        }
+    }
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick
+    {
+        color: #f7a1a1;
+    }
+    .mat-error{
+        color: #f7a1a1;
+    }
+}

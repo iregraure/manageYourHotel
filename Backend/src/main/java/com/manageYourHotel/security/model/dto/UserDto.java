@@ -2,7 +2,7 @@ package com.manageYourHotel.security.model.dto;
 
 import java.util.Set;
 
-import com.manageYourHotel.model.enums.Role;
+import com.manageYourHotel.security.model.enums.Role;
 
 public class UserDto {
 	

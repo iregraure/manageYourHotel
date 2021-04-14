@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 
 import com.manageYourHotel.model.dto.ClientDto;
 import com.manageYourHotel.model.entity.Client;
-import com.manageYourHotel.model.enums.Role;
 import com.manageYourHotel.security.model.User;
+import com.manageYourHotel.security.model.enums.Role;
 import com.manageYourHotel.security.repo.UserRepository;
 
 @Component

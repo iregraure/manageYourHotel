@@ -22,6 +22,7 @@ public class JWTTokenProvider {
 				.setSubject(user.getId().toString())
 				.setId(user.getId().toString())
 				.setIssuedAt(new Date(System.currentTimeMillis()))
+				.claim("roles", user.getRoles())
 				.setExpiration(new Date(System.currentTimeMillis() + Constants.EXPIRATION_TIME))
 				.signWith(getKey(), SignatureAlgorithm.HS512).compact();
 	}

@@ -1,0 +1,14 @@
+button
+{
+    background-color: $buttonBgColor;
+    color: $buttonTextColor;
+    font-size: $buttonTextSize;
+    padding: $buttonPadding;
+    border-radius: $buttonRadius;
+}
+
+button:disabled
+{
+    background-color: $disabledButtonBgColor;
+    color: $disabledButtonTextColor;
+}

@@ -1,0 +1,23 @@
+@import "src/scss/main.scss";
+
+
+
+.loginForm
+{
+    margin: 2vh 0;
+
+    .loginField
+    {
+        width: 60vw;
+        margin: 1vh 0;
+    }
+
+    
+
+    .iconButton
+    {
+        background-color: transparent;
+        color: $textColor;
+        border: none;
+    }
+}
