@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.manageYourHotel.model.dto.ClientDto;
+import com.manageYourHotel.model.dto.DtoConverter;
 import com.manageYourHotel.model.entity.Client;
 import com.manageYourHotel.repo.ClientRepository;
 import com.manageYourHotel.security.model.User;
@@ -27,7 +28,10 @@ public class UserService implements UserDetailsService
 	private ClientRepository clientRepo;
 	
 	@Autowired
-	private SecurityDtoConverter converter;
+	private SecurityDtoConverter securityConverter;
+	
+	@Autowired
+	private DtoConverter converter;
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException
@@ -45,13 +49,13 @@ public class UserService implements UserDetailsService
 	public UserDto newClient(ClientDto dto)
 	{
 		// Create a user from the clientDto and save it in the database
-		User newUser = converter.fromClientDtoToUser(dto);
+		User newUser = securityConverter.fromClientDtoToUser(dto);
 		userRepo.save(newUser);
 		// Create the client and save it in the database
 		Client client = converter.fromClientDtoToClient(dto);
 		client.setUser(newUser);
 		clientRepo.save(client);
-		return converter.fromUserToUserDto(newUser);
+		return securityConverter.fromUserToUserDto(newUser);
 	}
 
 }

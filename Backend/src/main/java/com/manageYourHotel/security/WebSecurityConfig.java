@@ -50,7 +50,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter
 	{
 		http.cors().and().csrf().disable().authorizeRequests()
 			.antMatchers(HttpMethod.POST, Constants.LOGIN_URL).permitAll()
-			.antMatchers(HttpMethod.POST, Constants.SIGNUP_URL).permitAll()
+			.antMatchers(HttpMethod.POST, Constants.CLIENT_SIGNUP_URL).permitAll()
 			.and().addFilter(new JWTAuthenticationFilter(authenticationManagerBean()))
 			.addFilterBefore(jwtAuthoriztionFilter, BasicAuthenticationFilter.class).sessionManagement()
 			.sessionCreationPolicy(SessionCreationPolicy.STATELESS); 	

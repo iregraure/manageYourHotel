@@ -8,5 +8,5 @@ public class Constants
 	public static final String TOKEN_PREFIX = "Bearer ";
 	public static final String HEADER_STRING = "Authorization";
 	public static final String LOGIN_URL = "/user/login";
-	public static final String SIGNUP_URL = "/user/signUp";
+	public static final String CLIENT_SIGNUP_URL = "/user/signUpClient";
 }

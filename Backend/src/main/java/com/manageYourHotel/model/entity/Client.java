@@ -10,12 +10,14 @@ import javax.persistence.OneToMany;
 @Entity
 public class Client extends Person {
 	
+	// Atributes
 	@OneToMany(mappedBy="client")
 	private List<Stay> stays;
 	
 	@OneToMany(mappedBy="clientRate", cascade=CascadeType.ALL)
 	private List<Rating> ratings;
 	
+	// Constructors
 	public Client()
 	{
 		super();

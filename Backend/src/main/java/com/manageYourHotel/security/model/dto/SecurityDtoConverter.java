@@ -47,13 +47,5 @@ public class SecurityDtoConverter {
 		user.setPasswordExpireDate(LocalDateTime.now().plusMonths(3));
 		return user;
 	}
-	
-	// From ClientDto to Client
-	public Client fromClientDtoToClient(ClientDto dto)
-	{
-		Client client = new Client(dto.getName(), dto.getSurname(), dto.getDni(), dto.getEmail(),
-				dto.getAddress(), dto.getPhone(), dto.getBirthDate());
-		return client;
-	}
 
 }
