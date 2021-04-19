@@ -25,8 +25,8 @@ export class LoginComponent implements OnInit {
   {
     this.loginForm = new FormGroup(
       {
-        username: new FormControl('123', [Validators.required]),
-        password: new FormControl('123', [Validators.required])
+        username: new FormControl('', [Validators.required]),
+        password: new FormControl('', [Validators.required])
       }
     )
   }
@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
         }
         else
         {
-          this.alerts.showSnackbar("Welcome employee");
+          this.router.navigate(["/hotel"]);
         }
       }
     },
