@@ -25,8 +25,8 @@ export class LoginComponent implements OnInit {
   {
     this.loginForm = new FormGroup(
       {
-        username: new FormControl('', [Validators.required]),
-        password: new FormControl('', [Validators.required])
+        username: new FormControl('ire', [Validators.required]),
+        password: new FormControl('47812240R', [Validators.required])
       }
     )
   }
@@ -45,6 +45,7 @@ export class LoginComponent implements OnInit {
         let decoded = jwt_decode(res);
         let roles = decoded['roles'];
         this.alerts.closeDialog();
+        this.loginService.emitUserChange();
         if(roles[0] == "CLIENT")
         {
           this.alerts.showSnackbar("Welcome client");

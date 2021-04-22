@@ -7,10 +7,11 @@ import { MainHotelComponent } from './components/main-hotel/main-hotel.component
 
 // Material imports
 import { MatIconModule } from '@angular/material/icon';
+import { ClientsManagementComponent } from './components/clients-management/clients-management.component';
 
 
 @NgModule({
-  declarations: [HotelComponent, MainHotelComponent],
+  declarations: [HotelComponent, MainHotelComponent, ClientsManagementComponent],
   imports: [
     CommonModule,
     HotelRoutingModule,

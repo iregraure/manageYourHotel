@@ -38,14 +38,13 @@ public class Employee extends Person {
 		this.ratings = new ArrayList<Rating>();
 	}
 	
-	public Employee(String name, String surname, String dni, String email, String address, String phone, String birthDate, String nss, String schedule, double salary, String holidays, Category category)
+	public Employee(String name, String surname, String dni, String email, String address, String phone, String birthDate, String nss, String schedule, double salary, Category category)
 	{
 		super(name, surname, dni, email, address, phone, birthDate);
 		this.ratings = new ArrayList<Rating>();
 		this.nss = nss;
 		this.schedule = schedule;
 		this.salary = salary;
-		this.holidays = holidays;
 		this.category = category;
 	}
 
@@ -80,6 +79,22 @@ public class Employee extends Person {
 
 	public void setHolidays(String holidays) {
 		this.holidays = holidays;
+	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	public List<Rating> getRatings() {
+		return ratings;
+	}
+
+	public void setRatings(List<Rating> ratings) {
+		this.ratings = ratings;
 	}
 	
 }

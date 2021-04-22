@@ -1,8 +1,21 @@
-<nav class="header">
-    <div class="image centered">
-        <img src="assets/img/Logo.PNG" alt="Hotel's logo">
+<nav class="column">
+    <div class="header">
+        <div class="image centered">
+            <img src="assets/img/Logo.PNG" alt="Hotel's logo">
+        </div>
+        <div class="title">
+            <h1>Manage your hotel</h1>
+        </div>
     </div>
-    <div class="title">
-        <h1>Manage your hotel</h1>
+    <div *ngIf="user != null">
+        <div class="taskbar rightCentered">
+            <div class="welcome">
+                <p>Welcome {{user.username}} </p>
+            </div>
+            <div class="icons">
+                <mat-icon (click)="goHome()">home</mat-icon>
+                <mat-icon (click)="logOut()">logout</mat-icon>
+            </div>
+        </div>
     </div>
 </nav>

@@ -57,5 +57,12 @@ public class UserService implements UserDetailsService
 		clientRepo.save(client);
 		return securityConverter.fromUserToUserDto(newUser);
 	}
+	
+	// Method to find a user knowing the username
+	public UserDto getUser(String username)
+	{
+		User user = userRepo.findUserByUsername(username);
+		return securityConverter.fromUserToUserDto(user);
+	}
 
 }
