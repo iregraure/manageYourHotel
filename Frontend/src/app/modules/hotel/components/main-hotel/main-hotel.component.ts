@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-hotel',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainHotelComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  goClients()
+  {
+    this.router.navigate(['clients']);
+  }
+
+  goRooms()
+  {
+
+  }
+
+  goEmployees()
+  {
+
   }
 
 }
