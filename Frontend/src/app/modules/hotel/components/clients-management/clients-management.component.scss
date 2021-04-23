@@ -1,0 +1,31 @@
+@import "src/scss/main.scss";
+
+h1
+{
+    padding-left: 5vw;
+    padding-top: 3vh;
+}
+
+.firstRow
+{
+    padding-left: 5vw;
+    font-size: 2.5vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+    ::ng-deep .mat-form-field-wrapper
+    {
+        width: 50vw;
+        
+        .icon
+        {
+            background-color: transparent;
+            color: $textColor;
+            border: none;
+            font-size: 2.5vh;
+        }
+    }
+
+
+}

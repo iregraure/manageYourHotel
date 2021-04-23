@@ -1,1 +1,49 @@
-<p>clients-management works!</p>
+<div class="main">
+    <h1>Client management</h1>
+
+    <div class="firstRow">
+        <form [formGroup]=searchForm>
+            <mat-form-field appearance="standard" class="loginField">
+                <mat-label>Search</mat-label>
+                <input matInput placeholder="search" formControlName="search">
+                <button class="icon" mat-icon-button matSuffix>
+                    <mat-icon>search</mat-icon>
+                </button>
+            </mat-form-field>
+        </form>
+        <div class="centered">
+            <button (click)="newClient()">New client</button>
+        </div>
+    </div>
+
+    <div class="table">
+        <table mat-table [dataSource]="clientsList">
+            <!-- Name column -->
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef>Name</th>
+                <td mat-cell *matCellDef="let client">{{client.name}}</td>
+            </ng-container>
+            <!-- Surname column -->
+            <ng-container matColumnDef="surname">
+                <th mat-header-cell *matHeaderCellDef>Surname</th>
+                <td mat-cell *matCellDef="let client">{{client.surname}}</td>
+            </ng-container>
+            <!-- DNI column -->
+            <ng-container matColumnDef="dni">
+                <th mat-header-cell *matHeaderCellDef>DNI</th>
+                <td mat-cell *matCellDef="let client">{{client.dni}}</td>
+            </ng-container>
+            <!-- Details column -->
+            <ng-container matColumnDef="details">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let client">
+                    <button>Details</button>
+                </td>
+            </ng-container>
+            <!-- Row templates -->
+            <tr mat-header-row *matHeaderRowDef="tableCols"></tr>
+            <tr mat-row *matRowDef="let client; columns: tableCols;"></tr>
+        </table>
+    </div>
+
+</div>
