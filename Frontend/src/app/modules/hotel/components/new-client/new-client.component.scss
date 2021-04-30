@@ -4,6 +4,7 @@
 {
     width: 80vw;
     background-color: #025A7C;
+    color: $textColor;
 
     .mat-card-header
     {
@@ -17,6 +18,11 @@
         justify-content: space-between;
         flex-wrap: wrap;
         margin: 3vh 0;
+
+        input
+        {
+            font-weight: 100;
+        }
 
         .validationError
         {

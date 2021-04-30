@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Types } from 'src/app/interfaces/alerts-type';
 import { User } from 'src/app/interfaces/userInterface';
 import { AlertsService } from 'src/app/services/alerts.service';
 import { JwtManagerService } from 'src/app/services/jwt-manager.service';
@@ -34,9 +35,14 @@ export class HeaderComponent implements OnInit {
 
   logOut()
   {
-    this.alerts.confirmDialog("Dou you really want to log out?");
-    this.jwtManager.removeJwt();
-    this.router.navigate(["/login"]);
+    this.alerts.confirmDialog("Dou you really want to log out?").subscribe(op =>
+      {
+        if(op == Types.ACCEPT)
+          {
+            this.jwtManager.removeJwt();
+            this.router.navigate(["/login"]);
+          }
+      })
   }
 
 }

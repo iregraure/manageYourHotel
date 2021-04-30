@@ -47,14 +47,14 @@ public class ClientController {
 		return response;
 	}
 	
-	// Get a client knowing his/her username
-	@GetMapping("/{username}")
-	public ResponseEntity<?> getClient(@PathVariable String username)
+	// Get a client knowing his/her dni
+	@GetMapping("/{dni}")
+	public ResponseEntity<?> getClient(@PathVariable String dni)
 	{
 		ResponseEntity<?> response;
 		try
 		{
-			ClientDto dto = clientService.getClient(username);
+			ClientDto dto = clientService.getClient(dni);
 			response = ResponseEntity.ok(dto);
 		}
 		catch(ClientException ce)
@@ -69,13 +69,13 @@ public class ClientController {
 	}
 	
 	// Update a client knowing his/her username
-	@PutMapping("/{username}")
-	public ResponseEntity<?> updateClient(@PathVariable String username, @RequestBody ClientDto sent)
+	@PutMapping("/{dni}")
+	public ResponseEntity<?> updateClient(@PathVariable String dni, @RequestBody ClientDto sent)
 	{
 		ResponseEntity<?> response;
 		try
 		{
-			ClientDto dto = clientService.updateClient(username, sent);
+			ClientDto dto = clientService.updateClient(dni, sent);
 			response = ResponseEntity.status(HttpStatus.ACCEPTED).body(dto);
 		}
 		catch(ClientException ce)

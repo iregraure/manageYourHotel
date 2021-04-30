@@ -19,4 +19,14 @@ export class ClientsManagementService {
   {
     return this.http.post<Client>('http://localhost:8080/user/signUpClient', client);
   }
+
+  getClient(dni: string): Observable<Client>
+  {
+    return this.http.get<Client>(`http://localhost:8080/client/${dni}`);
+  }
+
+  updateClient(client: Client)
+  {
+    return this.http.put<Client>(`http://localhost:8080/client/${client.dni}`, client);
+  }
 }

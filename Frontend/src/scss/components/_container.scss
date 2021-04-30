@@ -20,8 +20,9 @@
 .main
 {
     background-color: $bgColor;
-    height: 88vh;
+    min-height: 88vh;
     color: $textColor;
+    padding-bottom: 6vh;
 }
 
 .welcome

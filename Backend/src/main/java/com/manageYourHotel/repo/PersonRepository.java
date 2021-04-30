@@ -10,4 +10,6 @@ public interface PersonRepository extends CrudRepository<Person, Integer>
 {
 	// Get a person knowing his userId
 	public Person findPersonByUserId(int userId);
+	
+	public Person findPersonByDni(String dni);
 }

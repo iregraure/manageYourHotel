@@ -38,24 +38,24 @@
                     </div>
                 </div>
                 <div class="field">
-                    <label for="address"><b>address</b></label>
-                    <input type="text" name="address" placeholder="address"
+                    <label for="address"><b>Address</b></label>
+                    <input type="text" name="address" placeholder="Address"
                         [(ngModel)]="client.address" #address="ngModel">
                 </div>
                 <div class="field">
-                    <label for="phone"><b>phone</b></label>
-                    <input type="text" name="phone" placeholder="phone"
+                    <label for="phone"><b>Phone</b></label>
+                    <input type="text" name="phone" placeholder="Phone"
                         [(ngModel)]="client.phone" #phone="ngModel">
                 </div>
                 <div class="field">
-                    <label for="birthDate"><b>birthDate</b></label>
-                    <input type="text" name="birthDate" placeholder="birthDate"
+                    <label for="birthDate"><b>Birthdate</b></label>
+                    <input type="text" name="birthDate" placeholder="Birthdate"
                         [(ngModel)]="client.birthDate" #birthDate="ngModel">
                 </div>
             </form>
         </mat-card-content>
         <mat-card-actions>
-            <button mat-button (click)="create()">Create</button>
+            <button mat-button (click)="create()" [disabled]="!newClientForm.form.valid">Create</button>
             <button mat-button (click)="cancel()">Cancel</button>
         </mat-card-actions>
     </mat-card>

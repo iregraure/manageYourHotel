@@ -26,6 +26,51 @@ h1
             font-size: 2.5vh;
         }
     }
+}
 
+.table
+{
+    margin-top: 5vh;
 
+    ::ng-deep .mat-table
+    {
+        border: solid 2px #011F32;
+        border-right-width: 3px;
+        border-left-width: 3px;
+    }
+    
+    .mat-header-cell,
+    .mat-cell
+    {
+        color: #36B0FC;
+        background-color: #023F64;
+        padding: 1vh;
+        border-top: solid 1px #011F32;
+        border-bottom: solid 1px #011F32;
+        font-size: 2.5vh;
+    }
+    
+    button
+    {
+        font-size: 2.5vh;
+        
+    }
+
+    .pagination ::ng-deep 
+    {
+        .current
+        {
+            background-color: #012F4B;
+        }
+    
+        .ng-star-inserted
+        {
+            color: $textColor;
+        }
+    
+        .disabled
+        {
+            display: none;
+        }
+    }
 }

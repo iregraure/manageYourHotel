@@ -1,0 +1,29 @@
+@import "src/scss/main.scss";
+
+h1
+{
+    padding-top: 2vh;
+}
+
+.clientDetailsForm
+{
+    .field {
+        width: 80vw;
+        font-size: 2.5vh;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: 3vh 0;
+    
+        input {
+            font-weight: 100;
+        }
+    
+        .validationError {
+            margin-left: 31vw;
+            margin-top: 1vh;
+            font-size: 2.2vh;
+            color: #f7a1a1;
+        }
+    }
+}

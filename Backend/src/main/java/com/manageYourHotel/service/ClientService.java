@@ -54,37 +54,25 @@ public class ClientService {
 		return dto;
 	}
 
-	// Get a client knowing his/her username
-	public ClientDto getClient(String username) throws ClientException {
-		// Get the user with the username
-		User user = userRepo.findUserByUsername(username);
-		if (user == null) {
-			throw new ClientException("There is no user with that username");
+	// Get a client knowing his/her dni
+	public ClientDto getClient(String dni) throws ClientException {
+		// Get the person with the dni
+		Person person = personRepo.findPersonByDni(dni);
+		// Check if the person is an employee
+		if (!(person instanceof Client)) {
+			throw new ClientException("There is no client with that dni");
 		}
-		// Get the person with the user
-		Person person = personRepo.findPersonByUserId(user.getId());
-		// Get the client with the person's id
-		Client client = clientRepo.findClientById(person.getId());
-		if (client == null) {
-			throw new ClientException("There is no user with that username");
-		}
-		return converter.fromClientToClientDto(client);
+		return converter.fromClientToClientDto((Client)person);
 	}
 
 	// Update a client knowing his/her username
-	public ClientDto updateClient(String username, ClientDto sent) throws ClientException
+	public ClientDto updateClient(String dni, ClientDto sent) throws ClientException
 	{
-		// Get the user with the username
-		User user = userRepo.findUserByUsername(username);
-		if (user == null)
-		{
-			throw new ClientException("There is no user with that username");
-		}
-		// Get the person with the user
-		Person person = personRepo.findPersonByUserId(user.getId());
+		// Get the person with the dni
+		Person person = personRepo.findPersonByDni(dni);
 		if (person == null)
 		{
-			throw new ClientException("There is no user with that username");
+			throw new ClientException("There is no user with that dni");
 		}
 		// Update the client
 		updateService.updateClient((Client)person, converter.fromClientDtoToClient(sent));

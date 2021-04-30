@@ -14,10 +14,16 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+
+// Other imports
+import { NgxPaginationModule } from 'ngx-pagination';
+import { ClientDetailsComponent } from './components/client-details/client-details.component';
 
 
 @NgModule({
-  declarations: [HotelComponent, MainHotelComponent, ClientsManagementComponent, NewClientComponent],
+  declarations: [HotelComponent, MainHotelComponent, ClientsManagementComponent, NewClientComponent, ClientDetailsComponent],
   imports: [
     CommonModule,
     HotelRoutingModule,
@@ -27,7 +33,10 @@ import { MatCardModule } from '@angular/material/card';
     FormsModule,
     MatInputModule,
     MatTableModule,
-    MatCardModule
+    MatCardModule,
+    MatPaginatorModule,
+    NgxPaginationModule,
+    MatSortModule
   ]
 })
 export class HotelModule { }

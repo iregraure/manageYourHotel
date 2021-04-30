@@ -15,7 +15,7 @@ export class MainHotelComponent implements OnInit {
 
   goClients()
   {
-    this.router.navigate(['clients']);
+    this.router.navigate(['/hotel/clients']);
   }
 
   goRooms()
