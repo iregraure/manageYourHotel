@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RPAUtilsCommonLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:RPA.Utils.Common.RPACommonCore">
+            <summary>
+            Clase con método útiles
+            </summary>
+        </member>
+        <member name="M:RPA.Utils.Common.RPACommonCore.WaitNSeconds(System.Int32,System.Boolean)">
+            <summary>
+            Método para esperar N segundos
+            </summary>
+            <param name="segundos"></param>
+            <param name="isWPFApp">Indica si es una aplicación WPF</param>
+        </member>
+        <member name="M:RPA.Utils.Common.RPACommonCore.WaitNMilliseconds(System.Double)">
+            <summary>
+            Método para esperar un tiempo concreto
+            </summary>
+            <param name="milliseconds"></param>
+        </member>
+        <member name="M:RPA.Utils.Common.RPACommonCore.IsAssemblyDebugBuild(System.Reflection.Assembly)">
+            <summary>
+            Método para obtener si la aplicación que invoca está en modo Debug
+            </summary>
+            <param name="assembly"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RPA.Utils.Common.RPACommonCore.IsRelease">
+            <summary>
+            Indica si el actual proyecto está en modo Release
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RPA.Utils.Common.RPACommonCore.StartTime">
+            <summary>
+            Inicia un contador de tiempo
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RPA.Utils.Common.RPACommonCore.StopTime(System.Diagnostics.Stopwatch)">
+            <summary>
+            Para un contador de tiempo dado
+            </summary>
+            <param name="stopWatch"></param>
+        </member>
+        <member name="M:RPA.Utils.Common.RPACommonCore.PrintElapsedTime(System.Diagnostics.Stopwatch)">
+            <summary>
+            Obtiene la representación String del tiempo transcurrido para el contador dado
+            </summary>
+            <param name="stopWatch"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RPA.Utils.Common.RPACommonCore.GetClipboard(System.Int32,System.Int32)">
+            <summary>
+            Obtiene el texto copiado del portapalepes controlando que no esté bloqueado por otra aplicación.
+            </summary>
+            <param name="tries">Número de intentos</param>
+            <param name="milliseconds">Milisegundos entre cada intento</param>
+            <returns>El texto que se copió al clipboard</returns>
+        </member>
+        <member name="M:RPA.Utils.Common.RPACommonCore.SetClipboard(System.String,System.Int32,System.Int32)">
+            <summary>
+            Copia el texto en portapales controlando que no esté bloqueado por otra aplicación.
+            </summary>
+            <param name="text">El texto a añadir al clipboard</param>
+            <param name="tries">Número de intentos</param>
+            <param name="milliseconds">Milisegundos entre cada intento</param>
+        </member>
+        <member name="M:RPA.Utils.Common.RPACommonCore.GetMachineType">
+            <summary>
+            Método que devuelve el tipo de máquina en la que se ejecuta
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:RPA.Utils.Common.RPACommonHelper">
+            <summary>
+            Clase para generar un índice de envío de logs al servidor
+            </summary>
+        </member>
+        <member name="F:RPA.Utils.Common.RPACommonHelper.index">
+            <summary>
+            Índice de envío de logs
+            </summary>
+        </member>
+        <member name="M:RPA.Utils.Common.RPACommonHelper.GetIndex">
+            <summary>
+            Obtiene el siguiente índice
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:RPA.Utils.Common.MachineType">
+            <summary>
+            Indica los posibles tipos de máquinas
+            </summary>
+        </member>
+        <member name="F:RPA.Utils.Common.MachineType.WORKSTATION">
+            <summary>
+            Máquina local
+            </summary>
+        </member>
+        <member name="F:RPA.Utils.Common.MachineType.VIRTUAL_MACHINE">
+            <summary>
+            Máquina virtual: VirtualBox o VMWare
+            </summary>
+        </member>
+        <member name="F:RPA.Utils.Common.MachineType.SERVER">
+            <summary>
+            Servidor
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,17 @@
+C:\Users\Irene\Desktop\manageYourHotel\Selenium tests\ManageYourHotelTests\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+C:\Users\Irene\Desktop\manageYourHotel\Selenium tests\ManageYourHotelTests\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+C:\Users\Irene\Desktop\manageYourHotel\Selenium tests\ManageYourHotelTests\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+C:\Users\Irene\Desktop\manageYourHotel\Selenium tests\ManageYourHotelTests\ConsoleApp1\bin\Debug\NHotkey.dll
+C:\Users\Irene\Desktop\manageYourHotel\Selenium tests\ManageYourHotelTests\ConsoleApp1\bin\Debug\NHotkey.Wpf.dll
+C:\Users\Irene\Desktop\manageYourHotel\Selenium tests\ManageYourHotelTests\ConsoleApp1\bin\Debug\RPAUtilsCommonLibrary.dll
+C:\Users\Irene\Desktop\manageYourHotel\Selenium tests\ManageYourHotelTests\ConsoleApp1\bin\Debug\WebDriver.dll
+C:\Users\Irene\Desktop\manageYourHotel\Selenium tests\ManageYourHotelTests\ConsoleApp1\bin\Debug\NHotkey.pdb
+C:\Users\Irene\Desktop\manageYourHotel\Selenium tests\ManageYourHotelTests\ConsoleApp1\bin\Debug\NHotkey.Wpf.pdb
+C:\Users\Irene\Desktop\manageYourHotel\Selenium tests\ManageYourHotelTests\ConsoleApp1\bin\Debug\RPAUtilsCommonLibrary.pdb
+C:\Users\Irene\Desktop\manageYourHotel\Selenium tests\ManageYourHotelTests\ConsoleApp1\bin\Debug\RPAUtilsCommonLibrary.xml
+C:\Users\Irene\Desktop\manageYourHotel\Selenium tests\ManageYourHotelTests\ConsoleApp1\obj\Debug\ManageYourHotelTests.csprojAssemblyReference.cache
+C:\Users\Irene\Desktop\manageYourHotel\Selenium tests\ManageYourHotelTests\ConsoleApp1\obj\Debug\ManageYourHotelTests.csproj.CoreCompileInputs.cache
+C:\Users\Irene\Desktop\manageYourHotel\Selenium tests\ManageYourHotelTests\ConsoleApp1\obj\Debug\ManageYourHotelTests.csproj.CopyComplete
+C:\Users\Irene\Desktop\manageYourHotel\Selenium tests\ManageYourHotelTests\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+C:\Users\Irene\Desktop\manageYourHotel\Selenium tests\ManageYourHotelTests\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
+C:\Users\Irene\Desktop\manageYourHotel\Selenium tests\ManageYourHotelTests\ConsoleApp1\bin\Debug\WebDriver.xml
