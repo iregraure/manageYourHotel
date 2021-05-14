@@ -3,8 +3,12 @@ package com.manageYourHotel.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.manageYourHotel.exception.BuildingException;
 import com.manageYourHotel.exception.ClientException;
+import com.manageYourHotel.exception.FloorException;
+import com.manageYourHotel.exception.RoomException;
 import com.manageYourHotel.model.entity.Client;
+import com.manageYourHotel.model.entity.Room;
 import com.manageYourHotel.repo.ClientRepository;
 
 @Service
@@ -35,6 +39,17 @@ public class UpdateService {
 		original.setAddress((sent.getAddress() == null) ? original.getAddress() : sent.getAddress());
 		original.setPhone((sent.getPhone() == null) ? original.getPhone() : sent.getPhone());
 		original.setBirthDate((sent.getBirthDate() == null) ? original.getBirthDate() : sent.getBirthDate());
+	}
+	
+	// Update a room
+	public void UpdateRoom(Room original, Room sent)
+	{
+		original.setType((sent.getType() == null) ? original.getType() : sent.getType());
+		original.setPrice((sent.getPrice() == 0) ? original.getPrice() : sent.getPrice());
+		original.setSmoker(sent.isSmoker());
+		original.setTv(sent.isTv());
+		original.setAirConditioning(sent.isAirConditioning());
+		original.setBreakfast(sent.isBreakfast());
 	}
 
 }

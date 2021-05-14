@@ -36,6 +36,10 @@ public class Room {
 	private boolean breakfast;
 	
 	@ManyToOne
+	@JoinColumn(name = "state", foreignKey = @ForeignKey(name = "FK_ROOMSTATE_ROOM"))
+	private RoomState state;
+	
+	@ManyToOne
 	@JoinColumn(name = "floorId", foreignKey = @ForeignKey(name="FK_FLOOR_ROOM"))
 	private Floor floor;
 	
@@ -120,6 +124,35 @@ public class Room {
 
 	public int getId() {
 		return id;
+	}
+
+	public RoomState getState() {
+		return state;
+	}
+
+	public void setState(RoomState state) {
+		this.state = state;
+	}
+
+	public Floor getFloor() {
+		return floor;
+	}
+
+	public void setFloor(Floor floor) {
+		this.floor = floor;
+	}
+
+	public List<Stay> getStays() {
+		return stays;
+	}
+
+	public void setStays(List<Stay> stays) {
+		this.stays = stays;
+	}
+	
+	public void addStay(Stay stay)
+	{
+		this.stays.add(stay);
 	}
 	
 }

@@ -37,9 +37,10 @@ public class Floor {
 		this.rooms = new ArrayList<Room>();
 	}
 	
-	public Floor(int number)
+	public Floor(Building building, int number)
 	{
 		this.rooms = new ArrayList<Room>();
+		this.building = building;
 		this.number = number;
 	}
 
@@ -54,6 +55,27 @@ public class Floor {
 
 	public int getId() {
 		return id;
+	}
+
+	public Building getBuilding() {
+		return building;
+	}
+
+	public void setBuilding(Building building) {
+		this.building = building;
+	}
+
+	public List<Room> getRooms() {
+		return rooms;
+	}
+
+	public void setRooms(List<Room> rooms) {
+		this.rooms = rooms;
+	}
+	
+	public void addRoom(Room room)
+	{
+		this.rooms.add(room);
 	}
 	
 }
