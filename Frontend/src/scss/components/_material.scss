@@ -39,9 +39,7 @@
             display: flex;
             justify-content: center;
         }
-
     }
-
 }
 
 // Forms styles
@@ -82,7 +80,7 @@
         }
         .iconButton
         {
-            color: #f7a1a1;
+            color: #f7a1a1 !important;
         }
     }
     .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick

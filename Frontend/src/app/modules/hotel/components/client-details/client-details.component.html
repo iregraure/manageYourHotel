@@ -4,51 +4,48 @@
         <form #clientDetailsForm="ngForm">
             <div class="field">
                 <label for="name"><b>Name</b></label>
-                <input type="text" required name="name" placeholder="Name" [(ngModel)]="client.name" #name="ngModel">
+                <input type="text" required name="name" placeholder="Name" [(ngModel)]="client.name" #name="ngModel" id="name">
                 <div [hidden]="name.valid || name.untouched" class="validationError">
                     Mandatory field
                 </div>
             </div>
             <div class="field">
                 <label for="surname"><b>Surname</b></label>
-                <input type="text" required name="surname" placeholder="Surname" [(ngModel)]="client.surname"
-                    #surname="ngModel">
+                <input type="text" required name="surname" placeholder="Surname" [(ngModel)]="client.surname" #surname="ngModel" id="surname">
                 <div [hidden]="surname.valid || surname.untouched" class="validationError">
                     Mandatory field
                 </div>
             </div>
             <div class="field">
                 <label for="dni"><b>DNI</b></label>
-                <input type="text" required name="dni" placeholder="DNI" [(ngModel)]="client.dni" #dni="ngModel">
+                <input type="text" required name="dni" placeholder="DNI" [(ngModel)]="client.dni" #dni="ngModel" id="dni">
                 <div [hidden]="dni.valid || dni.untouched" class="validationError">
                     Mandatory field
                 </div>
             </div>
             <div class="field">
                 <label for="email"><b>Email</b></label>
-                <input type="text" required name="email" placeholder="Email" [(ngModel)]="client.email"
-                    #email="ngModel">
+                <input type="text" required name="email" placeholder="Email" [(ngModel)]="client.email" #email="ngModel" id="email">
                 <div [hidden]="email.valid || email.untouched" class="validationError">
                     Mandatory field
                 </div>
             </div>
             <div class="field">
                 <label for="address"><b>Address</b></label>
-                <input type="text" name="address" placeholder="Address" [(ngModel)]="client.address" #address="ngModel">
+                <input type="text" name="address" placeholder="Address" [(ngModel)]="client.address" #address="ngModel" id="address">
             </div>
             <div class="field">
                 <label for="phone"><b>Phone</b></label>
-                <input type="text" name="phone" placeholder="Phone" [(ngModel)]="client.phone" #phone="ngModel">
+                <input type="text" name="phone" placeholder="Phone" [(ngModel)]="client.phone" #phone="ngModel" id="phone">
             </div>
             <div class="field">
                 <label for="birthDate"><b>Birthdate</b></label>
-                <input type="text" name="birthDate" placeholder="Birthdate" [(ngModel)]="client.birthDate"
-                    #birthDate="ngModel">
+                <input type="text" name="birthDate" placeholder="Birthdate" [(ngModel)]="client.birthDate" #birthDate="ngModel" id="birthDate">
             </div>
         </form>
         <div class="buttons">
-            <button mat-button (click)="update()" [disabled]="!clientDetailsForm.form.valid">Update</button>
-            <button mat-button (click)="back()">Back</button>
+            <button mat-button (click)="update()" [disabled]="!clientDetailsForm.form.valid" id="update">Update</button>
+            <button mat-button (click)="back()" id="back">Back</button>
         </div>
     </div>
 </div>

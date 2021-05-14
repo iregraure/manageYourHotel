@@ -5,14 +5,14 @@
         <form [formGroup]=searchForm>
             <mat-form-field appearance="standard" class="loginField">
                 <mat-label>Search</mat-label>
-                <input matInput (keyup)="applyFilter($event)" placeholder="search" formControlName="search">
+                <input matInput (keyup)="applyFilter($event)" placeholder="search" formControlName="search" id="search">
                 <button class="icon" mat-icon-button matSuffix>
                     <mat-icon>search</mat-icon>
                 </button>
             </mat-form-field>
         </form>
         <div class="centered">
-            <button (click)="newClient()">New client</button>
+            <button (click)="newClient()" id="newClient">New client</button>
         </div>
     </div>
 
@@ -37,7 +37,7 @@
             <ng-container matColumnDef="details">
                 <th mat-header-cell *matHeaderCellDef></th>
                 <td mat-cell *matCellDef="let client">
-                    <button (click)="showDetails(client.dni)">Details</button>
+                    <button (click)="showDetails(client.dni)" id={{client.dni}}>Details</button>
                 </td>
             </ng-container>
             <!-- Row templates -->

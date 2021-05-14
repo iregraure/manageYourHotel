@@ -7,22 +7,22 @@
         <form [formGroup]=loginForm class="column">
             <mat-form-field appearance="outline" class="loginField">
                 <mat-label>Username</mat-label>
-                <input matInput placeholder="username" formControlName="username" required>
+                <input matInput placeholder="username" formControlName="username" required id="username">
                 <mat-error>
                     <div>Mandatory field</div>
                 </mat-error>
             </mat-form-field>
             <mat-form-field appearance="outline" class="loginField">
                 <mat-label>Password</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'" placeholder="password" formControlName="password" required>
-                <button class="iconButton" mat-icon-button matSuffix (click)="hide = !hide">
+                <input matInput [type]="hide ? 'password' : 'text'" placeholder="password" formControlName="password" required id="password">
+                <button class="iconButton" mat-icon-button matSuffix (click)="hide = !hide" id="hide">
                     <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
                 </button>
                 <mat-error>
                     <div>Mandatory field</div>
                 </mat-error>
             </mat-form-field>
-            <button class="loginButton" (click)="login()" [disabled]="loginForm.invalid">Log in</button>
+            <button class="loginButton" (click)="login()" [disabled]="loginForm.invalid" id="logIn">Log in</button>
         </form>
     </div>
 </div>
