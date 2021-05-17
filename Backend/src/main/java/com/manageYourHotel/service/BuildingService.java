@@ -25,6 +25,7 @@ public class BuildingService
 	private BuildingRepository buildingRepo;
 	
 	// Converter
+	@Autowired
 	private DtoConverter converter;
 	
 	// Get all buildings
@@ -38,7 +39,6 @@ public class BuildingService
 		List<BuildingDto> dtos = new ArrayList<BuildingDto>();
 		for(Building building : buildings)
 		{
-			converter.fromBuildingToBuildingDto(building);
 			BuildingDto dto = converter.fromBuildingToBuildingDto(building); 
 			dtos.add(dto);
 		}
@@ -69,6 +69,10 @@ public class BuildingService
 	// Create a new building
 	public BuildingDto newBuilding(BuildingDto dto) throws BuildingException
 	{
+		if(dto.getName().contains(" "))
+		{
+			throw new BuildingException("Name can't contain spaces");
+		}
 		Building building = buildingRepo.findBuildingByName(dto.getName());
 		if (building != null)
 		{

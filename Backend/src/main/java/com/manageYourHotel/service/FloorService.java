@@ -88,8 +88,6 @@ public class FloorService
 			}			
 		}
 		floorRepo.save(converter.fromFloorDtoToFloor(dto));
-		building.addFloor(converter.fromFloorDtoToFloor(dto));
-		buildingRepo.save(building);
 		return dto;
 	}
 

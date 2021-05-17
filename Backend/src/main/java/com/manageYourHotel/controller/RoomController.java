@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,6 +21,7 @@ import com.manageYourHotel.exception.PersonException;
 import com.manageYourHotel.exception.RoomException;
 import com.manageYourHotel.exception.RoomStateException;
 import com.manageYourHotel.model.dto.RoomDto;
+import com.manageYourHotel.model.dto.RoomStateDto;
 import com.manageYourHotel.model.dto.StayDto;
 import com.manageYourHotel.service.RoomService;
 import com.manageYourHotel.service.UpdateService;
@@ -68,7 +70,7 @@ public class RoomController {
 		ResponseEntity<?> response;
 		try
 		{
-			RoomDto room = roomService.getRoom(buildingName, roomNumber);
+			RoomDto room = roomService.getRoomDto(buildingName, roomNumber);
 			response = ResponseEntity.ok(room);
 		}
 		catch(BuildingException be)
@@ -88,7 +90,7 @@ public class RoomController {
 	
 	// Create a room
 	@PostMapping()
-	public ResponseEntity<?> addRoom(RoomDto dto)
+	public ResponseEntity<?> addRoom(@RequestBody RoomDto dto)
 	{
 		ResponseEntity<?> response;
 		try
@@ -121,12 +123,12 @@ public class RoomController {
 	
 	// Update a room
 	@PutMapping("/{buildingName}")
-	public ResponseEntity<?> updateRoom(RoomDto dto)
+	public ResponseEntity<?> updateRoom(@PathVariable String buildingName, @RequestBody RoomDto dto)
 	{
 		ResponseEntity<?> response;
 		try
 		{
-			RoomDto room = roomService.newRoom(dto);
+			RoomDto room = roomService.updateRoom(buildingName, dto);
 			response = ResponseEntity.ok(room);
 		}
 		catch(BuildingException be)
@@ -154,12 +156,12 @@ public class RoomController {
 	
 	// Change state
 	@PutMapping("/{buildingName}/{roomNumber}")
-	public ResponseEntity<?> changeState(String state, @PathVariable String buildingName, @PathVariable int roomNumber)
+	public ResponseEntity<?> changeState(@RequestBody RoomStateDto dto, @PathVariable String buildingName, @PathVariable int roomNumber)
 	{
 		ResponseEntity<?> response;
 		try
 		{
-			RoomDto room = roomService.changeState(buildingName, roomNumber, state);
+			RoomDto room = roomService.changeState(buildingName, roomNumber, dto.getState());
 			response = ResponseEntity.ok(room);
 		}
 		catch(BuildingException be)
@@ -186,8 +188,8 @@ public class RoomController {
 	}
 	
 	// Add a stay
-	@PostMapping("/room/{buildingName}/addStay")
-	public ResponseEntity<?> addStay(StayDto dto, @PathVariable String buildingName)
+	@PostMapping("/{buildingName}/addStay")
+	public ResponseEntity<?> addStay(@RequestBody StayDto dto, @PathVariable String buildingName)
 	{
 		ResponseEntity<?> response;
 		try

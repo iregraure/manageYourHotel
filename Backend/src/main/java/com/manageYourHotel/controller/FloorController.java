@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,8 +29,8 @@ public class FloorController
 	private FloorService floorService;
 	
 	// Get all the rooms of a floor
-	@GetMapping("/{buildingName}/{florNumber}/rooms")
-	public ResponseEntity<?> getFloorRooms(@PathVariable String buildingName, int floorNumber)
+	@GetMapping("/{buildingName}/{floorNumber}/rooms")
+	public ResponseEntity<?> getFloorRooms(@PathVariable String buildingName, @PathVariable int floorNumber)
 	{
 		ResponseEntity<?> response;
 		try
@@ -54,7 +55,7 @@ public class FloorController
 	
 	// Create a floor
 	@PostMapping()
-	public ResponseEntity<?> addFloor(FloorDto dto)
+	public ResponseEntity<?> addFloor(@RequestBody FloorDto dto)
 	{
 		ResponseEntity<?> response;
 		try

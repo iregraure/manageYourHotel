@@ -96,8 +96,8 @@ public class RoomService {
 		return rooms;
 	}
 
-	// Get a room
-	public RoomDto getRoom(String buildingName, int roomNumber) throws BuildingException, RoomException {
+	// Get a roomDto
+	public RoomDto getRoomDto(String buildingName, int roomNumber) throws BuildingException, RoomException {
 		List<Room> rooms = getRooms(buildingName);
 		Room room = null;
 		for (int i = 0; i < rooms.size() && room == null; i++) {
@@ -110,6 +110,22 @@ public class RoomService {
 			throw new RoomException("Room dosn't exist");
 		}
 		return converter.fromRoomToRoomDto(room);
+	}
+	
+	// Get a roomDto
+	public Room getRoom(String buildingName, int roomNumber) throws BuildingException, RoomException {
+		List<Room> rooms = getRooms(buildingName);
+		Room room = null;
+		for (int i = 0; i < rooms.size() && room == null; i++) {
+			Room r = rooms.get(i);
+			if (r.getNumber() == roomNumber) {
+				room = r;
+			}
+		}
+		if (room == null) {
+			throw new RoomException("Room dosn't exist");
+		}
+		return room;
 	}
 	
 	// Create a new room
@@ -138,6 +154,7 @@ public class RoomService {
 						throw new RoomException("Room already exist");
 					}
 				}
+				floor = f;
 			}
 		}
 		if(floor == null)
@@ -145,16 +162,13 @@ public class RoomService {
 			throw new FloorException("Floor doesn't exist");
 		}
 		roomRepo.save(converter.fromRoomDtoToRoom(dto));
-		floor.addRoom(converter.fromRoomDtoToRoom(dto));
-		floorRepo.save(floor);
 		return dto;
 	}
 	
 	// Update a room
 	public RoomDto updateRoom(String buildingName, RoomDto sent) throws BuildingException, RoomException, FloorException, RoomStateException
 	{
-		RoomDto roomDto = getRoom(buildingName, sent.getNumber());
-		Room room = converter.fromRoomDtoToRoom(roomDto);
+		Room room = getRoom(buildingName, sent.getNumber());
 		updateService.UpdateRoom(room, converter.fromRoomDtoToRoom(sent));
 		roomRepo.save(room);
 		return converter.fromRoomToRoomDto(room);
@@ -163,22 +177,21 @@ public class RoomService {
 	// Change state
 	public RoomDto changeState(String buildingName, int roomNumber, String roomState) throws BuildingException, RoomException, RoomStateException, FloorException
 	{
-		RoomDto roomDto = getRoom(buildingName, roomNumber);
-		Room room = converter.fromRoomDtoToRoom(roomDto);
+		Room room = getRoom(buildingName, roomNumber);
 		RoomState state = roomStateRepo.findRoomStateByState(roomState);
 		if(state == null)
 		{
 			throw new RoomStateException("Room state doesn't exist");
 		}
 		room.setState(state);
+		roomRepo.save(room);
 		return converter.fromRoomToRoomDto(room);
 	}
 	
 	// Add a stay
 	public StayDto addStay(StayDto dto, String buildingName) throws BuildingException, RoomException, PersonException, ClientException, RoomStateException, FloorException
 	{
-		RoomDto roomDto = getRoom(buildingName, dto.getRoomNumber());
-		Room room = converter.fromRoomDtoToRoom(roomDto);
+		Room room = getRoom(buildingName, dto.getRoomNumber());
 		Stay stay = converter.fromStayDtoToStay(buildingName, dto);
 		stayRepo.save(stay);
 		room.addStay(stay);

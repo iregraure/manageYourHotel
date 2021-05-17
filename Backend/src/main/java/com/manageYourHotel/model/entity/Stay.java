@@ -1,5 +1,6 @@
 package com.manageYourHotel.model.entity;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
@@ -17,9 +18,9 @@ public class Stay {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	private LocalDateTime startDate;
+	private LocalDate startDate;
 	
-	private LocalDateTime endDate;
+	private LocalDate endDate;
 	
 	private int rate;
 	
@@ -40,7 +41,7 @@ public class Stay {
 		this.rate = 0;
 	}
 	
-	public Stay(LocalDateTime startDate, LocalDateTime endDate, Room room, Client client)
+	public Stay(LocalDate startDate, LocalDate endDate, Room room, Client client)
 	{
 		this.startDate = startDate;
 		this.endDate = endDate;
@@ -50,19 +51,19 @@ public class Stay {
 	}
 	
 	// Getters and setters
-	public LocalDateTime getStartDate() {
+	public LocalDate getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(LocalDateTime startDate) {
+	public void setStartDate(LocalDate startDate) {
 		this.startDate = startDate;
 	}
 
-	public LocalDateTime getEndDate() {
+	public LocalDate getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(LocalDateTime endDate) {
+	public void setEndDate(LocalDate endDate) {
 		this.endDate = endDate;
 	}
 

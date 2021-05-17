@@ -1,5 +1,6 @@
 package com.manageYourHotel.model.dto;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -186,7 +187,7 @@ public class DtoConverter {
 				// Get the room to copy if necesary
 				if(dto.getCopyRoom() != 0)
 				{
-					RoomDto roomDto =roomService.getRoom(dto.getBuildingName(), dto.getCopyRoom()); 
+					RoomDto roomDto = roomService.getRoomDto(dto.getBuildingName(), dto.getCopyRoom()); 
 					copyRoom = fromRoomDtoToRoom(roomDto);
 					room = new Room(dto.getNumber(), copyRoom.getType(), copyRoom.getPrice(), copyRoom.isSmoker(),
 							copyRoom.isTv(), copyRoom.isAirConditioning(), copyRoom.isBreakfast());
@@ -253,16 +254,16 @@ public class DtoConverter {
 		{
 			throw new ClientException("There is no client with that dni");
 		}
-		// Convert string dates to localDateTime
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
-		LocalDateTime startDate = LocalDateTime.parse(dto.getStartDate(), formatter);
-		LocalDateTime endDate = LocalDateTime.parse(dto.getEndDate(), formatter);
+		// Convert string dates to localDate
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		LocalDate startDate = LocalDate.parse(dto.getStartDate(), formatter);
+		LocalDate endDate = LocalDate.parse(dto.getEndDate(), formatter);
 		// Create and return the stay
 		Stay stay = new Stay(startDate, endDate, room, (Client)client);
 		return stay;
 	}
 	
-	// From stay to staydto
+	// From stay to stayDto
 	public StayDto fromStayToStayDto (Stay stay)
 	{
 		// Get the room number and client dni
@@ -282,10 +283,25 @@ public class DtoConverter {
 		dto.setClientDni(clientDni);
 		return dto;
 	}
+	
+	// From roomStateDto to roomState
+	public RoomState fromRoomStateDtoToRoomState(RoomStateDto dto)
+	{
+		RoomState state = new RoomState(dto.getState());
+		return state;
+	}
+	
+	// From roomState to RoomStateDto
+	public RoomStateDto fromRoomStateToRoomStateDto(RoomState state)
+	{
+		RoomStateDto dto = new RoomStateDto();
+		dto.setState(state.getState());
+		return dto;
+	}
+	
 }
 
-
-
+	
 
 
 
