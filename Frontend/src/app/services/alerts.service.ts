@@ -13,7 +13,7 @@ export class AlertsService {
   dialogConfig = new MatDialogConfig();
 
   constructor(private dialog: MatDialog,
-    private snackBar: MatSnackBar) 
+              private snackBar: MatSnackBar) 
   { 
     this.dialogConfig.disableClose = true;
     this.dialogConfig.autoFocus = true;

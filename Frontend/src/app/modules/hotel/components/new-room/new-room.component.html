@@ -1,0 +1,99 @@
+<div class="main centered">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>New room</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form #newRoomForm="ngForm">
+                <div class="field">
+                    <label><b>Building</b></label>
+                    <select [(ngModel)]="building" name="building" (change)="buildingChange(building)">
+                        <option>Select one</option>
+                        <option *ngFor="let building of buildingList">
+                            {{building.name}}
+                        </option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label><b>Copy room</b></label>
+                    <select [(ngModel)]="copyRoom" name="copyRoom">
+                        <option>None</option>
+                        <option *ngFor="let room of roomList">
+                            {{room.number}}
+                        </option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label><b>Floor</b></label>
+                    <select [(ngModel)]="floor" name="floor">
+                        <option>Select one</option>
+                        <option *ngFor="let floor of floorList">
+                            {{floor.number}}
+                        </option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="number"><b>Number</b></label>
+                    <input type="text" required name="number" placeholder="Number" [(ngModel)]="room.number" #number="ngModel" id="number">
+                    <div [hidden]="number.valid || number.untouched" class="validationError">
+                        Mandatory field
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="type"><b>Type</b></label>
+                    <input type="text" required name="type" placeholder="Type" [(ngModel)]="room.type" #type="ngModel" id="type">
+                    <div [hidden]="type.valid || type.untouched" class="validationError">
+                        Mandatory field
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="price"><b>Price</b></label>
+                    <input type="text" required name="price" placeholder="Price" [(ngModel)]="room.price" #price="ngModel" id="price">
+                    <div [hidden]="price.valid || price.untouched" class="validationError">
+                        Mandatory field
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="smoker"><b>Smoker</b></label>
+                    <div class="options">
+                        <input type="radio" id="smokerYes" name="smoker" value="true" [(ngModel)]="smoker">
+                        <label for="smokerYes">Yes</label><br>
+                        <input type="radio" id="smokerNo" name="smoker" value="false" [(ngModel)]="smoker">
+                        <label for="smokerNo">No</label><br>
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="tv"><b>TV</b></label>
+                    <div class="options">
+                        <input type="radio" id="tvYes" name="tv" value="true" [(ngModel)]="tv">
+                        <label for="tvYes">Yes</label><br>
+                        <input type="radio" id="tvNo" name="tv" value="false" [(ngModel)]="tv">
+                        <label for="tvNo">No</label><br>
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="airConditioning"><b>Air Conditioning</b></label>
+                    <div class="options">
+                        <input type="radio" id="airConditioningYes" name="airConditioning" value="true" [(ngModel)]="airConditioning">
+                        <label for="airConditioningYes">Yes</label><br>
+                        <input type="radio" id="airConditioningNo" name="airConditioning" value="false" [(ngModel)]="airConditioning">
+                        <label for="airConditioningNo">No</label><br>
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="breakfast"><b>Breakfast</b></label>
+                    <div class="options">
+                        <input type="radio" id="breakfastYes" name="breakfast" value="true" [(ngModel)]="breakfast">
+                        <label for="breakfastYes">Yes</label><br>
+                        <input type="radio" id="breakfastNo" name="breakfast" value="false" [(ngModel)]="breakfast">
+                        <label for="breakfastNo">No</label><br>
+                    </div>
+                </div>
+            </form>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button (click)="create()" [disabled]="!newRoomForm.form.valid" id="create">Create</button>
+            <button mat-button (click)="cancel()" id="cancel">Cancel</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

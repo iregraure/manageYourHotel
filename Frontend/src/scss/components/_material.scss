@@ -14,7 +14,8 @@
         .mat-dialog-content
         {
             margin-top: 3vh;
-            height: 5vh;
+            // margin-bottom: 2vh;
+            padding: 1vh 1vw;
         }
 
         .alertIcon
@@ -89,5 +90,14 @@
     }
     .mat-error{
         color: #f7a1a1;
+    }
+
+    // disabled styles
+    .mat-input-element:disabled
+    {
+        color: $textColor;
+    }
+    .mat-form-field-appearance-outline.mat-form-field-disabled .mat-form-field-label {
+        color: $textColor;
     }
 }

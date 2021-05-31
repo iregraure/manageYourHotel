@@ -1,0 +1,35 @@
+<div class="main centered">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Add stay</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form [formGroup]=stayForm>
+                <mat-form-field appearance="outline" class="firstField">
+                    <mat-label>Building name</mat-label>
+                    <input matInput formControlName="buildingName" id="buildingName">
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="">
+                    <mat-label>Room number</mat-label>
+                    <input matInput formControlName="roomNumber" id="roomNumber">
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="">
+                    <mat-label>Start date</mat-label>
+                    <input matInput placeholder="dd/mm/yyyy" formControlName="startDate" id="startDate">
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="">
+                    <mat-label>End date</mat-label>
+                    <input matInput placeholder="dd/mm/yyyy" formControlName="endDate" id="endDate">
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="">
+                    <mat-label>Client DNI</mat-label>
+                    <input matInput placeholder="ClientDni" formControlName="clientDni" id="clientDni">
+                </mat-form-field>
+            </form>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button (click)="addStay()" [disabled]="stayForm.invalid" id="addStay">Add stay</button>
+            <button mat-button (click)="cancel()" id="cancel">Cancel</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

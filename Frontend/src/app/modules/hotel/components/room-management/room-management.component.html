@@ -1,0 +1,32 @@
+<div class="main">
+    <div class="addElements">
+        <button (click)="newBuilding()">Add building</button>
+        <button (click)="newFloor()">Add floor</button>
+        <button (click)="newRoom()">Add room</button>
+    </div>
+    <div class="buildings">
+        <div class="building" *ngFor="let building of buildingList">
+            <button (click)="selectBuilding(building)">{{building.name}}</button>
+        </div>
+    </div>
+    <div class="floors">
+        <div class="floor" *ngFor="let floor of floorList">
+            <button (click)="selectFloor(floor)">Floor {{floor.number}}</button>
+        </div>
+    </div>
+    <div class="rooms" *ngIf="roomList.length != 0">
+        <h3>Building: {{building.name}} Floor: {{floor.number}}</h3>
+        <table>
+            <tr>
+                <th>Nº</th>
+                <th>State</th>
+                <th></th>
+            </tr>
+            <tr *ngFor="let room of roomList">
+                <td>{{room.number}}</td>
+                <td>{{room.state}}</td>
+                <button (click)="showDetails(room.number)">Details</button>
+            </tr>
+        </table>
+    </div>
+</div>

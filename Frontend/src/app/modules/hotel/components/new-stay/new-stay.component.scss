@@ -1,0 +1,46 @@
+@import "src/scss/main.scss";
+
+.centered
+{
+    display: flex;
+    flex-direction: column;
+
+    .content
+    {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 4vh 4vw;
+    }
+}
+
+.mat-card
+{
+    margin-top: 4vh;
+    width: 80vw;
+    background-color: #025A7C;
+    color: $textColor;
+
+    .mat-card-header
+    {
+        border-bottom: solid 2px $bgColor;
+    }
+
+    .firstField
+    {
+        margin-top: 4vh;
+    }
+
+    .mat-card-actions
+    {
+        display: flex;
+        justify-content: flex-end;
+
+        button
+        {
+            font-size: 2.5vh;
+            margin: 3vh 3vw;
+            margin-top: 0;
+        }
+    }
+}

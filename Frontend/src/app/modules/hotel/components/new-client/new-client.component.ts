@@ -36,17 +36,17 @@ export class NewClientComponent implements OnInit {
     this.clientsManagementService.createClient(this.client).subscribe(res =>
       {
         this.alerts.showSnackbar("Client created");
-        this.router.navigate(['/hotel/clients']);
+        this.router.navigate(['hotel', 'clients']);
       },
       error =>
       {
-        this.alerts.errorDialog("Something went bad");
+        this.alerts.errorDialog(error.error);
       })
   }
 
   cancel()
   {
-    this.router.navigate(['/hotel/clients']);
+    this.router.navigate(['hotel', 'clients']);
   }
 
 }

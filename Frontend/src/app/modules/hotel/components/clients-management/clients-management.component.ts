@@ -1,6 +1,6 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { MatSort, Sort } from '@angular/material/sort';
+import { Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Client } from 'src/app/interfaces/clientInterface';
@@ -81,11 +81,11 @@ export class ClientsManagementComponent implements OnInit {
   }
 
   newClient() {
-    this.router.navigate(['/hotel/newClient']);
+    this.router.navigate(['hotel', 'newClient']);
   }
 
   showDetails(dni: string)
   {
-    this.router.navigate([`/hotel/client/${dni}`]);
+    this.router.navigate([`hotel/client/${dni}`]);
   }
 }

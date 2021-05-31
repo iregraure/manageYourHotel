@@ -36,14 +36,14 @@ export class ClientDetailsComponent implements OnInit {
   {
     this.clientManagementService.updateClient(this.client).subscribe(client =>
       {
-        this.router.navigate(['/hotel/clients']);
+        this.router.navigate(['hotel', 'clients']);
         this.alerts.showSnackbar("Client updated");
       })
   }
 
   back()
   {
-    this.router.navigate(['/hotel/clients']);
+    this.router.navigate(['hotel', 'clients']);
   }
 
 }

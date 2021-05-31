@@ -1,0 +1,83 @@
+<div class="main centered">
+    <h1>Update room</h1>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Room {{room.number}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form #updateRoomForm="ngForm">
+                <div class="field">
+                    <p>Building</p>
+                    <p>{{room.buildingName}}</p>
+                </div>
+                <div class="field">
+                    <p>Floor</p>
+                    <p>{{room.floorNumber}}</p>
+                </div>
+                <div class="field">
+                    <label for="type">Type</label>
+                    <input type="text" required name="type" placeholder="Type" [(ngModel)]="room.type" #type="ngModel" id="type">
+                    <div [hidden]="type.valid || type.untouched" class="validationError">
+                        Mandatory field
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="price">Price</label>
+                    <input type="text" required name="price" placeholder="Price" [(ngModel)]="room.price" #price="ngModel" id="price">
+                    <div [hidden]="price.valid || price.untouched" class="validationError">
+                        Mandatory field
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="smoker">Smoker</label>
+                    <div class="options">
+                        <input type="radio" id="smokerYes" name="smoker" value="true" [(ngModel)]="smoker">
+                        <label for="smokerYes">Yes</label><br>
+                        <input type="radio" id="smokerNo" name="smoker" value="false" [(ngModel)]="smoker">
+                        <label for="smokerNo">No</label><br>
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="tv">TV</label>
+                    <div class="options">
+                        <input type="radio" id="tvYes" name="tv" value="true" [(ngModel)]="tv">
+                        <label for="tvYes">Yes</label><br>
+                        <input type="radio" id="tvNo" name="tv" value="false" [(ngModel)]="tv">
+                        <label for="tvNo">No</label><br>
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="airConditioning">Air Conditioning</label>
+                    <div class="options">
+                        <input type="radio" id="airConditioningYes" name="airConditioning" value="true" [(ngModel)]="airConditioning">
+                        <label for="airConditioningYes">Yes</label><br>
+                        <input type="radio" id="airConditioningNo" name="airConditioning" value="false" [(ngModel)]="airConditioning">
+                        <label for="airConditioningNo">No</label><br>
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="breakfast">Breakfast</label>
+                    <div class="options">
+                        <input type="radio" id="breakfastYes" name="breakfast" value="true" [(ngModel)]="breakfast">
+                        <label for="breakfastYes">Yes</label><br>
+                        <input type="radio" id="breakfastNo" name="breakfast" value="false" [(ngModel)]="breakfast">
+                        <label for="breakfastNo">No</label><br>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>State</label>
+                    <select [(ngModel)]="room.state" name="state">
+                        <option>Choose one</option>
+                        <option *ngFor="let state of statesList">
+                            {{state.state}}
+                        </option>
+                    </select>
+                </div>
+            </form>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button (click)="update()" [disabled]="!updateRoomForm.form.valid" id="update">Update</button>
+            <button mat-button (click)="cancel()" id="cancel">Cancel</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

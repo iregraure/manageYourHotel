@@ -1,0 +1,29 @@
+<div class="main centered">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>New building</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form #newBuildingForm="ngForm">
+                <div class="field">
+                    <label for="name"><b>Name</b></label>
+                    <input type="text" required name="name" placeholder="Name" [(ngModel)]="building.name" #name="ngModel" id="name">
+                    <div [hidden]="name.valid || name.untouched" class="validationError">
+                        Mandatory field
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="address"><b>Address</b></label>
+                    <input type="text" required name="address" placeholder="Address" [(ngModel)]="building.address" #address="ngModel" id="address">
+                    <div [hidden]="address.valid || address.untouched" class="validationError">
+                        Mandatory field
+                    </div>
+                </div>
+            </form>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button (click)="create()" [disabled]="!newBuildingForm.form.valid" id="create">Create</button>
+            <button mat-button (click)="cancel()" id="cancel">Cancel</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
