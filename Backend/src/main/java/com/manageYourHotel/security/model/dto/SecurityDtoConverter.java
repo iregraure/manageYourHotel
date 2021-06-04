@@ -8,7 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import com.manageYourHotel.model.dto.ClientDto;
-import com.manageYourHotel.model.entity.Client;
+import com.manageYourHotel.model.dto.EmployeeDto;
 import com.manageYourHotel.security.model.User;
 import com.manageYourHotel.security.model.enums.Role;
 import com.manageYourHotel.security.repo.UserRepository;
@@ -32,8 +32,33 @@ public class SecurityDtoConverter {
 		return dto;
 	}
 	
+	// From UserDto to User
+	public User fromUserDtoToUser(UserDto dto)
+	{
+		User user = new User();
+		user.setUsername(dto.getUsername());
+		user.setPassword(dto.getPassword());
+		return user;
+	}
+	
 	// From ClientDto to User 
 	public User fromClientDtoToUser(ClientDto dto)
+	{
+		User user = new User();
+		user.setUsername(dto.getDni());
+		user.setPassword(passEncoder.encode(dto.getDni()));
+		user.setRoles(Set.of(Role.CLIENT));
+		user.setCreateTime(LocalDateTime.now());
+		user.setUpdateTime(LocalDateTime.now());
+		user.setLastPasswordChange(LocalDateTime.now());
+		user.setEnabled(true);
+		user.setAuthAttempts(0);
+		user.setPasswordExpireDate(LocalDateTime.now().plusMonths(3));
+		return user;
+	}
+	
+	// From EmployeeDto to User
+	public User fromEmployeeDtoToUser(EmployeeDto dto)
 	{
 		User user = new User();
 		user.setUsername(dto.getDni());

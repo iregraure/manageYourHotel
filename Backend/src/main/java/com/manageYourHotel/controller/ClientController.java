@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.manageYourHotel.exception.ClientException;
+import com.manageYourHotel.exception.StayException;
 import com.manageYourHotel.model.dto.ClientDto;
+import com.manageYourHotel.model.dto.StayDto;
 import com.manageYourHotel.service.ClientService;
 
 @CrossOrigin
@@ -68,7 +70,57 @@ public class ClientController {
 		return response;
 	}
 	
-	// Update a client knowing his/her username
+	// Get all stays of a client
+	@GetMapping("/{dni}/stays")
+	public ResponseEntity<?> getAllStays(@PathVariable String dni)
+	{
+		ResponseEntity<?> response;
+		try
+		{
+			List<StayDto> stays = clientService.getClientStays(dni);
+			response = ResponseEntity.ok(stays);
+		}
+		catch(ClientException ce)
+		{
+			response = ResponseEntity.status(HttpStatus.NOT_FOUND).body(ce.getMessage());
+		}
+		catch(StayException se)
+		{
+			response = ResponseEntity.status(HttpStatus.NOT_FOUND).body(se.getMessage());
+		}
+		catch (Exception e)
+		{
+			response = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Unexpected error");
+		}
+		return response;
+	}
+	
+	// Get one stay knowing the client dni and the startDate
+	@GetMapping("/{dni}/stays/{day}/{month}/{year}")
+	public ResponseEntity<?> getStay(@PathVariable String dni, @PathVariable String day, @PathVariable String month, @PathVariable String year)
+	{
+		ResponseEntity<?> response;
+		try
+		{
+			StayDto stay = clientService.getClientStay(dni, day, month, year);
+			response = ResponseEntity.ok(stay);
+		}
+		catch(ClientException ce)
+		{
+			response = ResponseEntity.status(HttpStatus.NOT_FOUND).body(ce.getMessage());
+		}
+		catch(StayException se)
+		{
+			response = ResponseEntity.status(HttpStatus.NOT_FOUND).body(se.getMessage());
+		}
+		catch (Exception e)
+		{
+			response = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Unexpected error");
+		}
+		return response;
+	}
+	
+	// Update a client knowing his/her dni
 	@PutMapping("/{dni}")
 	public ResponseEntity<?> updateClient(@PathVariable String dni, @RequestBody ClientDto sent)
 	{

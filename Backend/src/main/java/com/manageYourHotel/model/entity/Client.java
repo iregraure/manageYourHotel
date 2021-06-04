@@ -31,5 +31,21 @@ public class Client extends Person {
 		this.stays = new ArrayList<Stay>();
 		this.ratings = new ArrayList<Rating>();
 	}
+
+	public List<Stay> getStays() {
+		return stays;
+	}
+
+	public void setStays(List<Stay> stays) {
+		this.stays = stays;
+	}
+
+	public List<Rating> getRatings() {
+		return ratings;
+	}
+
+	public void setRatings(List<Rating> ratings) {
+		this.ratings = ratings;
+	}
 	
 }

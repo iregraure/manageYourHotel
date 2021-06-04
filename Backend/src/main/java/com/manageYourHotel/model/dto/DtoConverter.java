@@ -270,7 +270,7 @@ public class DtoConverter {
 		int roomNumber = stay.getRoom().getNumber();
 		String clientDni = stay.getClient().getDni();
 		// Convert LocalDateTime dates to string
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		String startDate = stay.getStartDate().format(formatter);
 		String endDate = stay.getEndDate().format(formatter);
 		// Create and return stayDto
