@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, Output, EventEmitter } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { User } from '../interfaces/userInterface';
+import { JwtManagerService } from './jwt-manager.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,12 @@ export class LoginService {
 
   @Output() userChanges = new EventEmitter<User>();
 
-  constructor(private http: HttpClient) { }
+  public isUserLogged = new Subject<boolean>();
+  public isLogged = this.isUserLogged.asObservable();
+  public url = '';
+
+  constructor(private http: HttpClient,
+              private jwt: JwtManagerService) { }
 
   validateUser(username: string, password: string)
   {
@@ -51,6 +57,17 @@ export class LoginService {
       {
         this.userChanges.emit(loggedUser);
       });
+  }
+
+  isLoggedIn(url: string): boolean
+  {
+    const logged = this.jwt.getJwt();
+    if(!logged)
+    {
+      this.url = url;
+      return false;
+    }
+    return true;
   }
 
 }

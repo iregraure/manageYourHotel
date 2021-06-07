@@ -16,6 +16,8 @@ export class HeaderComponent implements OnInit {
 
   user: User; // To save the logged user
 
+  logged: boolean;
+
   constructor(private loginService: LoginService,
               private router: Router,
               private jwtManager: JwtManagerService,
@@ -28,6 +30,12 @@ export class HeaderComponent implements OnInit {
       {
         this.user = newUser;
       });
+
+    // this.logged = this.loginService.isLoggedIn('');
+    // this.loginService.userChanges.subscribe(logged =>
+    //   {
+    //     this.logged = logged;
+    //   })
   }
 
   goHome()

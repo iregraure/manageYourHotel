@@ -16,8 +16,6 @@ export class StaysListComponent implements OnInit {
 
   staysList: Stay[] = [];
 
-  tableCols: string[] = ['startDate', 'endDate', 'details'];
-
   constructor(
     private userService: UserManagementService,
     private router: Router,

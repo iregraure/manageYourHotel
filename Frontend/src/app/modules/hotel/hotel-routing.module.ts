@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { LoginGuardGuard } from 'src/app/guards/login-guard.guard';
 import { ClientDetailsComponent } from './components/client-details/client-details.component';
 import { ClientsManagementComponent } from './components/clients-management/clients-management.component';
 import { MainHotelComponent } from './components/main-hotel/main-hotel.component';
@@ -15,47 +16,58 @@ import { UpdateRoomComponent } from './components/update-room/update-room.compon
 const routes: Routes = [
   { 
     path: '', 
-    component: MainHotelComponent 
+    component: MainHotelComponent,
+    canActivate: [LoginGuardGuard]
   },
   { 
     path: 'clients', 
-    component: ClientsManagementComponent 
+    component: ClientsManagementComponent,
+    canActivate: [LoginGuardGuard]
   },
   {
     path: 'newClient',
-    component: NewClientComponent
+    component: NewClientComponent,
+    canActivate: [LoginGuardGuard]
   },
   {
     path: 'client/:dni',
-    component: ClientDetailsComponent
+    component: ClientDetailsComponent,
+    canActivate: [LoginGuardGuard]
   },
   {
     path: 'rooms',
-    component: RoomManagementComponent
+    component: RoomManagementComponent,
+    canActivate: [LoginGuardGuard]
   },
   {
     path: 'newBuilding',
-    component: NewBuildingComponent
+    component: NewBuildingComponent,
+    canActivate: [LoginGuardGuard]
   },
   {
     path: 'newFloor',
-    component: NewFloorComponent
+    component: NewFloorComponent,
+    canActivate: [LoginGuardGuard]
   },
   {
     path: 'newRoom',
-    component: NewRoomComponent
+    component: NewRoomComponent,
+    canActivate: [LoginGuardGuard]
   },
   {
     path: 'room/:number',
-    component: RoomDetailsComponent
+    component: RoomDetailsComponent,
+    canActivate: [LoginGuardGuard]
   },
   {
     path: 'room/:number/update',
-    component: UpdateRoomComponent
+    component: UpdateRoomComponent,
+    canActivate: [LoginGuardGuard]
   },
   {
     path: 'room/:number/newStay',
-    component: NewStayComponent
+    component: NewStayComponent,
+    canActivate: [LoginGuardGuard]
   }
 ];
 
