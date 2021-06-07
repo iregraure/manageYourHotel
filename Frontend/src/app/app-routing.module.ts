@@ -14,7 +14,11 @@ const routes: Routes = [
   },
   { 
     path: 'hotel', 
-    loadChildren: () => import('./modules/hotel/hotel.module').then(m => m.HotelModule) 
+    loadChildren: () => import('./modules/hotel/hotel.module').then(m => m.HotelModule)
+  },
+  { 
+    path: 'clients', 
+    loadChildren: () => import('./modules/clients/clients.module').then(m => m.ClientsModule)
   }
 ];
 

@@ -1,0 +1,56 @@
+<div class="main column">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Client details</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form #clientDataForm="ngForm" class="content">
+                <div class="field">
+                    <label for="name"><b>Name</b></label>
+                    <input type="text" required name="name" placeholder="Name" [(ngModel)]="client.name" #name="ngModel" id="name">
+                    <div [hidden]="name.valid || name.untouched" class="validationError">
+                        Mandatory field
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="surname"><b>Surname</b></label>
+                    <input type="text" required name="surname" placeholder="Surname" [(ngModel)]="client.surname" #surname="ngModel" id="surname">
+                    <div [hidden]="surname.valid || surname.untouched" class="validationError">
+                        Mandatory field
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="dni"><b>DNI</b></label>
+                    <input type="text" required name="dni" placeholder="DNI" [(ngModel)]="client.dni" #dni="ngModel" id="dni">
+                    <div [hidden]="dni.valid || dni.untouched" class="validationError">
+                        Mandatory field
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="email"><b>Email</b></label>
+                    <input type="text" required name="email" placeholder="Email" [(ngModel)]="client.email" #email="ngModel" id="email">
+                    <div [hidden]="email.valid || email.untouched" class="validationError">
+                        Mandatory field
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="address"><b>Address</b></label>
+                    <input type="text" name="address" placeholder="Address" [(ngModel)]="client.address" #address="ngModel" id="address">
+                </div>
+                <div class="field">
+                    <label for="phone"><b>Phone</b></label>
+                    <input type="text" name="phone" placeholder="Phone" [(ngModel)]="client.phone" #phone="ngModel" id="phone">
+                </div>
+                <div class="field">
+                    <label for="birthDate"><b>Birthdate</b></label>
+                    <input type="text" name="birthDate" placeholder="Birthdate" [(ngModel)]="client.birthDate" #birthDate="ngModel" id="birthDate">
+                </div>
+            </form>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button (click)="updateUser()" id="updateUser">User</button>
+            <button mat-button (click)="update()" [disabled]="!clientDataForm.form.valid" id="update">Update</button>
+            <button mat-button (click)="back()" id="back">Back</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

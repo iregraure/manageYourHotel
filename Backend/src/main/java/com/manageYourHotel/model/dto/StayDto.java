@@ -14,6 +14,8 @@ public class StayDto
 	private int roomNumber;
 	
 	private String clientDni;
+	
+	private String buildingName;
 
 	// Getters and setters
 	public String getStartDate() {
@@ -62,6 +64,14 @@ public class StayDto
 
 	public void setClientDni(String clientDni) {
 		this.clientDni = clientDni;
+	}
+
+	public String getBuildingName() {
+		return buildingName;
+	}
+
+	public void setBuildingName(String buildingName) {
+		this.buildingName = buildingName;
 	}
 	
 }

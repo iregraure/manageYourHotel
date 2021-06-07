@@ -6,4 +6,5 @@ export interface Stay
     comment?: string;
     roomNumber: number;
     clientDni: string;
+    buildingName?: string;
 }

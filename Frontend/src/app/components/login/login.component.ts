@@ -25,8 +25,8 @@ export class LoginComponent implements OnInit {
   {
     this.loginForm = new FormGroup(
       {
-        username: new FormControl('ire', [Validators.required]),
-        password: new FormControl('47812240R', [Validators.required])
+        username: new FormControl('12345678R', [Validators.required]),
+        password: new FormControl('12345678R', [Validators.required])
       }
     )
   }
@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
         this.loginService.emitUserChange();
         if(roles[0] == "CLIENT")
         {
-          this.alerts.showSnackbar("Welcome client");
+          this.router.navigate(["/clients"]);
         }
         else
         {

@@ -1,0 +1,19 @@
+<div class="main column">
+    <h1>Stays list</h1>
+
+    <div class="table column">
+        <table>
+            <tr>
+                <th>Start</th>
+                <th>End</th>
+                <th></th>
+            </tr>
+            <tr *ngFor="let stay of staysList">
+                <td>{{stay.startDate}}</td>
+                <td>{{stay.endDate}}</td>
+                <button (click)="showDetails(stay.startDate)">Details</button>
+            </tr>
+        </table>
+    </div>
+
+</div>

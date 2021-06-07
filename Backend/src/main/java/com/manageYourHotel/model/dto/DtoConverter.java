@@ -281,6 +281,7 @@ public class DtoConverter {
 		dto.setComment(stay.getComment());
 		dto.setRoomNumber(roomNumber);
 		dto.setClientDni(clientDni);
+		dto.setBuildingName(stay.getRoom().getFloor().getBuilding().getName());
 		return dto;
 	}
 	

@@ -68,7 +68,6 @@ public class UpdateService {
 			original.setPasswordExpireDate(LocalDateTime.now().plusMonths(3));
 			original.setPassword(passEncoder.encode(sent.getPassword()));
 		}
-		original.setUsername((sent.getUsername() == null) ? original.getUsername() : sent.getUsername());
 	}
 	
 	// Update an employee

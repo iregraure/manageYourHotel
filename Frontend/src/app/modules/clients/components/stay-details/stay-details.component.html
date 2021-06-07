@@ -1,0 +1,33 @@
+<div class="main centered">
+    <mat-card>
+        <mat-card-header class="centered">
+            <mat-card-title>From {{stay.startDate}}</mat-card-title>
+            <mat-card-title>To {{stay.endDate}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="content">
+                <div class="left">
+                    <p>Building</p>
+                    <p>Room type</p>
+                    <p>Price</p>
+                    <p>Smoker</p>
+                    <p>Tv</p>
+                    <p>Air conditioning</p>
+                    <p>Breakfast</p>
+                </div>
+                <div class="right">
+                    <p>{{stay.buildingName}}</p>
+                    <p>{{room.type}}</p>
+                    <p>{{room.price}} € / night</p>
+                    <p>{{smoker}}</p>
+                    <p>{{tv}}</p>
+                    <p>{{airConditioning}}</p>
+                    <p>{{breakfast}}</p>
+                </div>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button (click)="back()" id="back">Back</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

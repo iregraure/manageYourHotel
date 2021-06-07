@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.manageYourHotel.exception.ClientException;
 import com.manageYourHotel.exception.StayException;
+import com.manageYourHotel.exception.UserException;
 import com.manageYourHotel.model.dto.ClientDto;
 import com.manageYourHotel.model.dto.DtoConverter;
 import com.manageYourHotel.model.dto.StayDto;
@@ -18,6 +19,7 @@ import com.manageYourHotel.model.entity.Person;
 import com.manageYourHotel.model.entity.Stay;
 import com.manageYourHotel.repo.ClientRepository;
 import com.manageYourHotel.repo.PersonRepository;
+import com.manageYourHotel.security.model.User;
 import com.manageYourHotel.security.model.dto.SecurityDtoConverter;
 import com.manageYourHotel.security.repo.UserRepository;
 
@@ -67,6 +69,22 @@ public class ClientService {
 			throw new ClientException("There is no client with that dni");
 		}
 		return converter.fromClientToClientDto((Client)person);
+	}
+	
+	// Get a client knowing his/her username
+	public ClientDto getClientByUsername(String username) throws UserException, ClientException
+	{
+		User user = userRepo.findUserByUsername(username);
+		if(user == null)
+		{
+			throw new UserException("There is no user with that username");
+		}
+		Person person = personRepo.findPersonByUserId(user.getId());
+		if(!(person instanceof Client))
+		{
+			throw new ClientException("There is no client with that username");
+		}
+		return converter.fromClientToClientDto((Client) person);
 	}
 
 	// Update a client knowing his/her dni

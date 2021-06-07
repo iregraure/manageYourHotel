@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Types } from 'src/app/interfaces/alerts-type';
@@ -18,7 +19,8 @@ export class HeaderComponent implements OnInit {
   constructor(private loginService: LoginService,
               private router: Router,
               private jwtManager: JwtManagerService,
-              private alerts: AlertsService) { }
+              private alerts: AlertsService,
+              private location: Location) { }
 
   ngOnInit(): void 
   {
@@ -30,7 +32,7 @@ export class HeaderComponent implements OnInit {
 
   goHome()
   {
-    this.router.navigate(["/hotel"]);
+    this.location.back();
   }
 
   logOut()

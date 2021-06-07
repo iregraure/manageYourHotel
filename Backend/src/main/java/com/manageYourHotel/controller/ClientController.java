@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.manageYourHotel.exception.ClientException;
 import com.manageYourHotel.exception.StayException;
+import com.manageYourHotel.exception.UserException;
 import com.manageYourHotel.model.dto.ClientDto;
 import com.manageYourHotel.model.dto.StayDto;
 import com.manageYourHotel.service.ClientService;
@@ -58,6 +59,31 @@ public class ClientController {
 		{
 			ClientDto dto = clientService.getClient(dni);
 			response = ResponseEntity.ok(dto);
+		}
+		catch(ClientException ce)
+		{
+			response = ResponseEntity.status(HttpStatus.NOT_FOUND).body(ce.getMessage());
+		}
+		catch (Exception e)
+		{
+			response = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Unexpected error");
+		}
+		return response;
+	}
+	
+	// Get a client knowing his/her username
+	@GetMapping("/user/{username}")
+	public ResponseEntity<?> getClientByUsername(@PathVariable String username)
+	{
+		ResponseEntity<?> response;
+		try
+		{
+			ClientDto dto = clientService.getClientByUsername(username);
+			response = ResponseEntity.ok(dto);
+		}
+		catch(UserException ue)
+		{
+			response = ResponseEntity.status(HttpStatus.NOT_FOUND).body(ue.getMessage());
 		}
 		catch(ClientException ce)
 		{
