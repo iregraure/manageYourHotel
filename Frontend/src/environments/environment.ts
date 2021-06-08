@@ -5,7 +5,16 @@
 export const environment = {
   production: false,
   serverUrl: "http://localhost:8080",
-  loginUrl: "/user/login"
+  loginUrl: "/user/login",
+  getBuildingsUrl: "/building/buildings",
+  createBuildingUrl: "/building",
+  getClientsUrl: "/client/clients",
+  createClientUrl: "/user/signUpClient",
+  createEmployeeUrl: "/user/signUpEmployee",
+  createFloorUrl: "/floor",
+  createRoomUrl: "/room",
+  getCreateRoomStateUrl: "/roomState",
+  getEmployeesUrl: "/employee/employes"
 };
 
 /*

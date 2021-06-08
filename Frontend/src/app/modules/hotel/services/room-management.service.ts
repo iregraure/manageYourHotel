@@ -6,6 +6,7 @@ import { Floor } from 'src/app/interfaces/floorInterface';
 import { Room } from 'src/app/interfaces/roomInterface';
 import { RoomState } from 'src/app/interfaces/roomStateInterface';
 import { Stay } from 'src/app/interfaces/stayInterface';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -18,67 +19,67 @@ export class RoomManagementService {
 
   getAllBuildings(): Observable<Building[]>
   {
-    return this.http.get<Building[]>('http://localhost:8080/building/buildings');
+    return this.http.get<Building[]>(environment.getBuildingsUrl);
   }
 
   getAllFloorsInBuilding(buildingName: String): Observable<Floor[]>
   {
-    return this.http.get<Floor[]>(`http://localhost:8080/building/${buildingName}/floors`);
+    return this.http.get<Floor[]>(`/building/${buildingName}/floors`);
   }
 
   createBuilding(building: Building)
   {
-    return this.http.post<Building>('http://localhost:8080/building', building);
+    return this.http.post<Building>(environment.createBuildingUrl, building);
   }
 
   getAllRoomsInFloor(buildingName: String, floorNumber: number): Observable<Room[]>
   {
-    return this.http.get<Room[]>(`http://localhost:8080/floor/${buildingName}/${floorNumber}/rooms`);
+    return this.http.get<Room[]>(`/floor/${buildingName}/${floorNumber}/rooms`);
   }
 
   createFloor(floor: Floor)
   {
-    return this.http.post<Floor>('http://localhost:8080/floor', floor);
+    return this.http.post<Floor>(environment.createFloorUrl, floor);
   }
 
   getAllRoomsInBuilding(buildingName: String): Observable<Room[]>
   {
-    return this.http.get<Room[]>(`http://localhost:8080/room/${buildingName}/rooms`);
+    return this.http.get<Room[]>(`/room/${buildingName}/rooms`);
   }
 
   getRoom(buildingName: String, roomNumber: number): Observable<Room>
   {
-    return this.http.get<Room>(`http://localhost:8080/room/${buildingName}/${roomNumber}`);
+    return this.http.get<Room>(`/room/${buildingName}/${roomNumber}`);
   }
 
   createRoom(room: Room)
   {
-    return this.http.post<Room>('http://localhost:8080/room', room);
+    return this.http.post<Room>(environment.createRoomUrl, room);
   }
 
   updateRoom(buildingName: String, room: Room)
   {
-    return this.http.put<Room>(`http://localhost:8080/room/${buildingName}`, room);
+    return this.http.put<Room>(`/room/${buildingName}`, room);
   }
 
   changeState(buildingName: String, roomNumber: number, state: RoomState)
   {
-    return this.http.put<RoomState>(`http://localhost:8080/room/${buildingName}/${roomNumber}`, state);
+    return this.http.put<RoomState>(`/room/${buildingName}/${roomNumber}`, state);
   }
 
   addStay(buildingName: String, stay: Stay)
   {
-    return this.http.post<Stay>(`http://localhost:8080/room/${buildingName}/addStay`, stay);
+    return this.http.post<Stay>(`/room/${buildingName}/addStay`, stay);
   }
 
   getAllRoomStates(): Observable<RoomState[]>
   {
-    return this.http.get<RoomState[]>('http://localhost:8080/roomState');
+    return this.http.get<RoomState[]>(environment.getCreateRoomStateUrl);
   }
 
   addRoomState(state: RoomState)
   {
-    return this.http.post<RoomState>('http://localhost:8080/roomState', state);
+    return this.http.post<RoomState>(environment.getCreateRoomStateUrl, state);
   }
 
   setBuildingName(buildingName: string)

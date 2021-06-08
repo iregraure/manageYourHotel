@@ -6,6 +6,7 @@ import { User } from 'src/app/interfaces/userInterface';
 import { AlertsService } from 'src/app/services/alerts.service';
 import { JwtManagerService } from 'src/app/services/jwt-manager.service';
 import { LoginService } from 'src/app/services/login.service';
+import jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-header',
@@ -21,8 +22,7 @@ export class HeaderComponent implements OnInit {
   constructor(private loginService: LoginService,
               private router: Router,
               private jwtManager: JwtManagerService,
-              private alerts: AlertsService,
-              private location: Location) { }
+              private alerts: AlertsService) { }
 
   ngOnInit(): void 
   {
@@ -40,7 +40,17 @@ export class HeaderComponent implements OnInit {
 
   goHome()
   {
-    this.location.back();
+    let jwt = this.jwtManager.getJwt();
+    let decoded = jwt_decode(jwt);
+    let rol = decoded['roles'];
+    if(rol == 'CLIENT')
+    {
+      this.router.navigate(['/clients']);
+    }
+    else if(rol == 'RECEPTION')
+    {
+      this.router.navigate(['/hotel']);
+    }
   }
 
   logOut()

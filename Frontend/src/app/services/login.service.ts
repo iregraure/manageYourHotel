@@ -34,12 +34,12 @@ export class LoginService {
       password: password
     }
 
-    return this.http.post(environment.serverUrl + environment.loginUrl, this.user, { responseType: 'text' });
+    return this.http.post(environment.loginUrl, this.user, { responseType: 'text' });
   }
 
   getLoggedUser(): Observable<User>
   {
-    return this.http.get<User>('http://localhost:8080/user/' + this.user.username).pipe(tap(getUser =>
+    return this.http.get<User>('/user/' + this.user.username).pipe(tap(getUser =>
       {
         if((this.user == null && getUser != null) ||
           (this.user != null && getUser == null) ||
