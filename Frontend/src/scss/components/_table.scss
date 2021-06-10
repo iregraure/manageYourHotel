@@ -1,0 +1,65 @@
+table
+{
+    border: solid 2px $tableBorderColor;
+    background-color: $tableBgColor;
+    color: $tableTextColor;
+    border-collapse: collapse;
+
+    tr
+    {
+        border-top: solid 1px $tableBorderColor;
+        font-size: $tableTextSize;
+
+        th
+        {
+            font-weight: 400;
+            height: 6vh;
+            background-color: $tableHeaderBgColor;
+        }
+
+        td
+        {
+            min-width: 20vw;
+            height: 8vh;
+            padding: 0 4vw;
+
+            @media screen and (min-width: 1200px)
+            {
+                max-width: 20vw;
+                min-width: 0;
+            }
+        }
+        
+        button
+        {
+            margin-top: 1.2vh;
+            margin-right: 2vw;
+        }
+    }
+}
+
+.table
+{
+    margin-top: 5vh;
+
+    .mat-header-cell,
+    .mat-cell
+    {
+        color: $tableTextColor;
+        background-color: $tableBgColor;
+        padding: 1vh;
+        border-top: solid 1px $tableBorderColor;
+        border-bottom: solid 1px $tableBorderColor;
+        font-size: 2.5vh;
+    }
+
+    .mat-header-cell
+    {
+        background-color: $tableHeaderBgColor;
+    }
+    
+    button
+    {
+        font-size: 2.5vh;
+    }
+}

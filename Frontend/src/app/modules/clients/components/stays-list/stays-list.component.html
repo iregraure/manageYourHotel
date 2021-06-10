@@ -1,5 +1,5 @@
 <div class="main column">
-    <h1>Stays list</h1>
+    <h1 class="pageTitle">Stays list</h1>
 
     <div class="table column">
         <table>
@@ -11,7 +11,7 @@
             <tr *ngFor="let stay of staysList">
                 <td>{{stay.startDate}}</td>
                 <td>{{stay.endDate}}</td>
-                <button (click)="showDetails(stay.startDate)">Details</button>
+                <button (click)="showDetails(stay.startDate)" id={{stay.roomNumber}}>Details</button>
             </tr>
         </table>
     </div>

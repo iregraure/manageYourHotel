@@ -6,7 +6,7 @@
         <mat-card-content>
             <form #newFloorForm="ngForm">
                 <div class="field">
-                    <label><b>Building</b></label>
+                    <label>Building</label>
                     <select [(ngModel)]="selectedOption" name="building">
                         <option>Select one</option>
                         <option *ngFor="let building of buildingList">
@@ -15,7 +15,7 @@
                     </select>
                 </div>
                 <div class="field">
-                    <label for="number"><b>Number</b></label>
+                    <label for="number">Number</label>
                     <input type="text" required name="number" placeholder="Number" [(ngModel)]="floor.number" #number="ngModel" id="number">
                     <div [hidden]="number.valid || number.untouched" class="validationError">
                         Mandatory field

@@ -59,6 +59,32 @@
         }
     }
 
+    // Wrapper styles
+    .mat-form-field-wrapper
+    {
+        width: 50vw;
+        margin-right: 8vw;
+
+        @media screen and (min-width: 600px)
+        {
+            font-size: $formInputTextSizeTablet;
+        }
+
+        @media screen and (min-width: 1200px)
+        {
+            width: 20vw;
+            margin-right: 4vw;
+        }
+        
+        .icon
+        {
+            background-color: transparent;
+            color: $textColor;
+            border: none;
+            font-size: 2.5vh;
+        }
+    }
+
     // focused styles
     .mat-form-field.mat-focused {
         .mat-form-field-label,
@@ -74,22 +100,22 @@
         .mat-input-element,
         .mat-form-field-label
         {
-            color: #f7a1a1;
+            color: $formErrorColor;
             .mat-form-field-required-marker {
-                color: #f7a1a1;
+                color: $formErrorColor;
             }
         }
         .iconButton
         {
-            color: #f7a1a1 !important;
+            color: $formErrorColor !important;
         }
     }
     .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick
     {
-        color: #f7a1a1;
+        color: $formErrorColor;
     }
     .mat-error{
-        color: #f7a1a1;
+        color: $formErrorColor;
     }
 
     // disabled styles
@@ -99,5 +125,16 @@
     }
     .mat-form-field-appearance-outline.mat-form-field-disabled .mat-form-field-label {
         color: $textColor;
+    }
+}
+
+// Table styles
+::ng-deep 
+{
+    .mat-table
+    {
+        border: solid 2px $tableBorderColor;
+        border-right-width: 3px;
+        border-left-width: 3px;
     }
 }

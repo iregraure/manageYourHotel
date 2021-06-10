@@ -6,12 +6,12 @@
     </div>
     <div class="buildings">
         <div class="building" *ngFor="let building of buildingList">
-            <button (click)="selectBuilding(building)">{{building.name}}</button>
+            <button (click)="selectBuilding(building)" id={{building.name}}>{{building.name}}</button>
         </div>
     </div>
     <div class="floors">
         <div class="floor" *ngFor="let floor of floorList">
-            <button (click)="selectFloor(floor)">Floor {{floor.number}}</button>
+            <button (click)="selectFloor(floor)" id={{floor.number}}>Floor {{floor.number}}</button>
         </div>
     </div>
     <div class="rooms" *ngIf="roomList.length != 0">
@@ -25,7 +25,7 @@
             <tr *ngFor="let room of roomList">
                 <td>{{room.number}}</td>
                 <td>{{room.state}}</td>
-                <button (click)="showDetails(room.number)">Details</button>
+                <button (click)="showDetails(room.number)" id={{room.number}}>Details</button>
             </tr>
         </table>
     </div>

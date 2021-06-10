@@ -6,7 +6,7 @@
         <mat-card-content>
             <form #newRoomForm="ngForm">
                 <div class="field">
-                    <label><b>Building</b></label>
+                    <label>Building</label>
                     <select [(ngModel)]="building" name="building" (change)="buildingChange(building)">
                         <option>Select one</option>
                         <option *ngFor="let building of buildingList">
@@ -15,7 +15,7 @@
                     </select>
                 </div>
                 <div class="field">
-                    <label><b>Copy room</b></label>
+                    <label>Copy room</label>
                     <select [(ngModel)]="copyRoom" name="copyRoom">
                         <option>None</option>
                         <option *ngFor="let room of roomList">
@@ -24,7 +24,7 @@
                     </select>
                 </div>
                 <div class="field">
-                    <label><b>Floor</b></label>
+                    <label>Floor</label>
                     <select [(ngModel)]="floor" name="floor">
                         <option>Select one</option>
                         <option *ngFor="let floor of floorList">
@@ -33,28 +33,28 @@
                     </select>
                 </div>
                 <div class="field">
-                    <label for="number"><b>Number</b></label>
+                    <label for="number">Number</label>
                     <input type="text" required name="number" placeholder="Number" [(ngModel)]="room.number" #number="ngModel" id="number">
                     <div [hidden]="number.valid || number.untouched" class="validationError">
                         Mandatory field
                     </div>
                 </div>
                 <div class="field">
-                    <label for="type"><b>Type</b></label>
+                    <label for="type">Type</label>
                     <input type="text" required name="type" placeholder="Type" [(ngModel)]="room.type" #type="ngModel" id="type">
                     <div [hidden]="type.valid || type.untouched" class="validationError">
                         Mandatory field
                     </div>
                 </div>
                 <div class="field">
-                    <label for="price"><b>Price</b></label>
+                    <label for="price">Price</label>
                     <input type="text" required name="price" placeholder="Price" [(ngModel)]="room.price" #price="ngModel" id="price">
                     <div [hidden]="price.valid || price.untouched" class="validationError">
                         Mandatory field
                     </div>
                 </div>
                 <div class="field">
-                    <label for="smoker"><b>Smoker</b></label>
+                    <label for="smoker">Smoker</label>
                     <div class="options">
                         <input type="radio" id="smokerYes" name="smoker" value="true" [(ngModel)]="smoker">
                         <label for="smokerYes">Yes</label><br>
@@ -63,7 +63,7 @@
                     </div>
                 </div>
                 <div class="field">
-                    <label for="tv"><b>TV</b></label>
+                    <label for="tv">TV</label>
                     <div class="options">
                         <input type="radio" id="tvYes" name="tv" value="true" [(ngModel)]="tv">
                         <label for="tvYes">Yes</label><br>
@@ -72,7 +72,7 @@
                     </div>
                 </div>
                 <div class="field">
-                    <label for="airConditioning"><b>Air Conditioning</b></label>
+                    <label for="airConditioning">Air Conditioning</label>
                     <div class="options">
                         <input type="radio" id="airConditioningYes" name="airConditioning" value="true" [(ngModel)]="airConditioning">
                         <label for="airConditioningYes">Yes</label><br>
@@ -81,7 +81,7 @@
                     </div>
                 </div>
                 <div class="field">
-                    <label for="breakfast"><b>Breakfast</b></label>
+                    <label for="breakfast">Breakfast</label>
                     <div class="options">
                         <input type="radio" id="breakfastYes" name="breakfast" value="true" [(ngModel)]="breakfast">
                         <label for="breakfastYes">Yes</label><br>

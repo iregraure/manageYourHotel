@@ -1,0 +1,58 @@
+.mat-card
+{
+    width: $cardWidth;
+    margin-top: 6vh;
+    background-color: $cardBgColor;
+    color: $textColor;
+
+    @media screen and (min-width: 600px)
+    {
+        width: $cardWidthTablet;
+        padding: 0 6vw;
+        padding-top: 3vh;
+    }
+
+    @media screen and (min-width: 1200px)
+    {
+        width: $cardWidthDesktop;
+        padding: 0 6vw;
+        padding-top: 3vh;
+    }
+
+    .mat-card-header
+    {
+        border-bottom: solid 2px $bgColor;
+    }
+
+    .mat-card-title
+    {
+        @media screen and (min-width: 600px) 
+        {
+            font-size: $cardHeaderTextSizeTablet;
+        }
+    }
+
+    .firstField
+    {
+        margin-top: 4vh;
+    }
+
+    .mat-card-actions
+    {
+        display: flex;
+        justify-content: flex-end;
+
+        button
+        {
+            font-size: $cardButtonTextSize;
+            margin: $cardButtonMargin;
+            margin-top: $cardButtonMarginTop;
+
+            @media screen and (min-width: 1200px)
+            {
+                margin: $cardButtonMarginDesktop;
+                padding: 1vh 2vw;
+            }
+        }
+    }
+}

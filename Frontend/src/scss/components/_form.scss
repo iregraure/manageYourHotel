@@ -1,0 +1,71 @@
+.loginForm
+{
+    margin: 2vh 0;
+
+    .loginField
+    {
+        width: 60vw;
+        margin: 1vh 0;
+    }
+
+    .iconButton
+    {
+        background-color: transparent;
+        color: $textColor;
+        border: none;
+    }
+}
+
+.field
+{
+    font-size: $formFieldTextSize;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: $formFieldMargin;
+
+    input
+    {
+        font-weight: 100;
+        border: solid 1px $bgColor;
+        font-size: $formInputTextSizeTablet;
+    }
+
+    input:disabled
+    {
+        background-color: $cardBgColor;
+        color: $textColor;
+    }
+
+    .options
+    {
+        width: $formOptionsWidth;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    select
+    {
+        @media screen and (min-width: 600px)
+        {
+            font-size: $formInputTextSizeTablet;
+        }
+    }
+
+    .validationError
+    {
+        margin-left: $formErrorMarginLeft;
+        margin-top: $formErrorMarginTop;
+        font-size: $formErrorTextSize;
+        color: $formErrorColor;
+    }
+}
+
+.clientDetailsForm
+{
+    .field 
+    {
+        width: 80vw;
+    }
+}

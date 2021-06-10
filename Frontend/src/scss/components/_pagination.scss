@@ -1,0 +1,17 @@
+.pagination ::ng-deep 
+{
+    .current
+    {
+        background-color: $paginationBgColor;
+    }
+
+    .ng-star-inserted
+    {
+        color: $textColor;
+    }
+
+    .disabled
+    {
+        display: none;
+    }
+}

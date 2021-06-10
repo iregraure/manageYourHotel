@@ -5,6 +5,7 @@ $bgColor: #024873;
 // Header variables
 $headerBackgroundColor: #001b2c;
 $headerTitleColor: #04C8B4;
+$headerHeight: 12vh;
 
 // Buttons variables
 $buttonBgColor: #F49471;
@@ -14,3 +15,34 @@ $buttonPadding: 1vh 3vw;
 $buttonRadius: 6px;
 $disabledButtonBgColor: #FBDBD0;
 $disabledButtonTextColor: #A5360D;
+
+// Cards variables
+$cardWidth: 80vw;
+$cardWidthTablet: 60vw;
+$cardWidthDesktop: 30vw;
+$cardBgColor: #025A7C;
+$cardButtonTextSize: 2.5vh;
+$cardButtonMargin: 3vh 3vw;
+$cardButtonMarginDesktop: 3vh 1.5vw;
+$cardButtonMarginTop: 0;
+$cardHeaderTextSizeTablet: 3.2vh;
+
+// Forms variables
+$formFieldTextSize: 2.5vh;
+$formFieldMargin: 3vh 0;
+$formOptionsWidth: 40vw;
+$formErrorColor: #f7a1a1;
+$formErrorMarginLeft: 31vw;
+$formErrorMarginTop: 1vh;
+$formErrorTextSize: 2.2vh;
+$formInputTextSizeTablet: 2vh;
+
+// Pagination variables
+$paginationBgColor: #012F4B;
+
+// Tables variables
+$tableBorderColor: #011F32;
+$tableBgColor: #023F64;
+$tableTextColor: #36B0FC;
+$tableTextSize: 2.5vh;
+$tableHeaderBgColor: #022f4b;

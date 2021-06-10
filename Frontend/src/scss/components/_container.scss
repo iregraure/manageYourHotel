@@ -1,12 +1,24 @@
 .title
 {
-    padding: 3vh 8vw;
+    display: flex;
+    align-items: center;
+    height: $headerHeight;
+    padding: 0 !important;
+    padding-right: 4vw !important;
 }
 
 .centered
 {
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+.rightCentered
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
     align-items: center;
 }
 
@@ -17,6 +29,37 @@
     align-items: center;
 }
 
+.columnLogin
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 20vw;
+}
+
+.twoColumns
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 4vh 4vw;
+    padding-bottom: 0;
+
+    @media screen and (min-width: 600px)
+    {
+        font-size: $formInputTextSizeTablet;
+    }
+}
+
+.firstRow
+{
+    padding-left: 5vw;
+    font-size: 2.5vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
 .main
 {
     background-color: $bgColor;
@@ -25,7 +68,40 @@
     padding-bottom: 6vh;
 }
 
+.mainButtons
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media screen and (min-width: 1200px)
+    {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+
 .welcome
 {
     padding: 3vh 0;
+}
+
+.addElements,
+.buildings,
+.floors
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-top: 4vh;
+}
+
+.rooms
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 4vh;
 }

@@ -69,9 +69,9 @@ export class AlertsService {
     return dialogoRef.afterClosed();
   }
 
-  showSnackbar(mensajeAMostrar: string)
+  showSnackbar(message: string)
   {
-    this.snackBar.open(mensajeAMostrar, null,
+    this.snackBar.open(message, null,
       {
         duration: 3000,
         horizontalPosition: 'center',

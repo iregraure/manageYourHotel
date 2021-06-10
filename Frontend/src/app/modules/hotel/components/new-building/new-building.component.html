@@ -6,14 +6,14 @@
         <mat-card-content>
             <form #newBuildingForm="ngForm">
                 <div class="field">
-                    <label for="name"><b>Name</b></label>
+                    <label for="name">Name</label>
                     <input type="text" required name="name" placeholder="Name" [(ngModel)]="building.name" #name="ngModel" id="name">
                     <div [hidden]="name.valid || name.untouched" class="validationError">
                         Mandatory field
                     </div>
                 </div>
                 <div class="field">
-                    <label for="address"><b>Address</b></label>
+                    <label for="address">Address</label>
                     <input type="text" required name="address" placeholder="Address" [(ngModel)]="building.address" #address="ngModel" id="address">
                     <div [hidden]="address.valid || address.untouched" class="validationError">
                         Mandatory field

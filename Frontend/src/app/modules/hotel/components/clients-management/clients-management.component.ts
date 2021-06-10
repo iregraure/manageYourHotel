@@ -20,7 +20,7 @@ export class ClientsManagementComponent implements OnInit {
 
   dataSource: MatTableDataSource<Client> = new MatTableDataSource(this.clientsList);
 
-  tableCols: string[] = ['name', 'surname', 'dni', 'details'];
+  tableCols: string[] = ['name', /*'surname',*/ 'dni', 'details'];
 
   page: number;
 
